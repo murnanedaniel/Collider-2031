@@ -8,16 +8,17 @@ export function useData() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const baseUrl = import.meta.env.BASE_URL;
     Promise.all([
-      fetch('/data/foundation_space_events.json').then(r => {
+      fetch(`${baseUrl}data/foundation_space_events.json`).then(r => {
         if (!r.ok) throw new Error('Failed to load events');
         return r.json();
       }),
-      fetch('/data/foundation_space_surfaces.json').then(r => {
+      fetch(`${baseUrl}data/foundation_space_surfaces.json`).then(r => {
         if (!r.ok) throw new Error('Failed to load surfaces');
         return r.json();
       }),
-      fetch('/data/foundation_space_simulated.json').then(r => {
+      fetch(`${baseUrl}data/foundation_space_simulated.json`).then(r => {
         if (!r.ok) throw new Error('Failed to load simulated events');
         return r.json();
       })

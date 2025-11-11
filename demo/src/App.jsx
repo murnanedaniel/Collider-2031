@@ -18,7 +18,7 @@ import { ROUTES } from './utils/constants';
 function App() {
   return (
     <AgentProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Collider-2031">
         <Routes>
           {/* Landing page - no navigation bar */}
           <Route path="/" element={<Landing />} />

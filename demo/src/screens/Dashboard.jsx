@@ -16,7 +16,8 @@ export default function Dashboard() {
 
   // Load event display data
   useEffect(() => {
-    fetch('/data/event_displays.json')
+    const baseUrl = import.meta.env.BASE_URL;
+    fetch(`${baseUrl}data/event_displays.json`)
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
