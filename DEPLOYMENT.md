@@ -19,36 +19,14 @@ The React app includes the landing page as its root route, keeping everything in
 
 ## 📋 One-Time Setup
 
-### Step 1: Enable GitHub Pages
+### Enable GitHub Pages
 
-1. Go to your repo: https://github.com/murnanedaniel/collider2031
+1. Go to your repo: https://github.com/murnanedaniel/Collider-2031
 2. Click **Settings** → **Pages** (left sidebar)
 3. Under **Build and deployment**, select:
    - **Source**: GitHub Actions ⚠️ (NOT "Deploy from a branch")
 4. GitHub will show "Your site is live at..." once deployed
-
-### Step 2: Configure DNS for collider-2031.com
-
-At your domain registrar, add a **CNAME record**:
-
-```
-Type: CNAME
-Name: @ (or leave blank for root)
-Value: murnanedaniel.github.io
-TTL: 3600
-```
-
-**Alternative (if CNAME doesn't work for root):** Use A records pointing to:
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
-
-### Step 3: Wait for DNS Propagation
-
-- Takes 15-30 minutes usually
-- Check status: https://dnschecker.org/#CNAME/collider-2031.com
-- Once ready, enable **Enforce HTTPS** in Settings → Pages
+5. Enable **Enforce HTTPS** in Settings → Pages
 
 ## 💻 Making Changes
 
@@ -65,7 +43,7 @@ git commit -m "Update demo feature X"
 git push
 
 # 3. GitHub Actions automatically builds and deploys!
-# Check progress: https://github.com/murnanedaniel/collider2031/actions
+# Check progress: https://github.com/murnanedaniel/Collider-2031/actions
 ```
 
 ## 📁 Repository Structure
@@ -75,7 +53,6 @@ collider2031/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml         # 🤖 GitHub Actions workflow
-├── CNAME                      # 🌐 Domain config
 ├── demo/                      # 💻 React app (includes landing page)
 │   ├── src/
 │   │   ├── screens/
@@ -84,7 +61,7 @@ collider2031/
 │   │   │   └── ...
 │   ├── public/
 │   ├── package.json
-│   └── vite.config.js         # ⚙️  base: '/'
+│   └── vite.config.js         # ⚙️  base: '/Collider-2031/'
 ├── docs/
 │   └── timeline.md
 ├── README.md
@@ -99,14 +76,14 @@ collider2031/
 
 ## 🌐 Live URLs
 
-- **Landing/Demo**: https://collider-2031.com (React app with landing page at root)
-- **Timeline**: https://collider-2031.com/docs/timeline
-- **GitHub**: https://github.com/murnanedaniel/collider2031
+- **Landing/Demo**: https://murnanedaniel.github.io/Collider-2031/
+- **Timeline**: https://murnanedaniel.github.io/Collider-2031/docs/timeline
+- **GitHub**: https://github.com/murnanedaniel/Collider-2031
 - **Zenodo**: https://doi.org/10.5281/zenodo.17578821
 
 ## 🔍 Monitoring Deployments
 
-- **Check build status**: https://github.com/murnanedaniel/collider2031/actions
+- **Check build status**: https://github.com/murnanedaniel/Collider-2031/actions
 - **Typical build time**: 1-2 minutes
 
 ## 🐛 Troubleshooting
@@ -115,7 +92,7 @@ collider2031/
 
 **Demo blank?** Check console for errors, verify React Router is loading correctly
 
-**Domain not working?** Check DNS, wait 30 mins, verify CNAME file
+**404 errors for assets?** Verify `base: '/Collider-2031/'` in vite.config.js matches your repo name exactly
 
 ## ⚡ Local Testing
 

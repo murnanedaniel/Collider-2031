@@ -47,9 +47,6 @@ jobs:
           # Copy built demo to root
           cp -r demo/dist/* _site/
 
-          # Copy CNAME for custom domain
-          cp CNAME _site/
-
           # Copy docs
           mkdir -p _site/docs
           cp -r docs/* _site/docs/
