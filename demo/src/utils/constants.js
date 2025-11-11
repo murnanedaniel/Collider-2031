@@ -6,7 +6,7 @@ export const DETECTOR_COLORS = {
 };
 
 export const MAJA_INFO = {
-  name: "Maja Petersen",
+  name: "Maja Andersen",
   institution: "ETH Zürich",
   field: "Climate Science",
   affiliation: "HiLumi M.C.",

@@ -76,7 +76,7 @@ export default function Timeline() {
       events: [
         { month: 'January', description: 'Foundation Space v2.0 with SM surface v1.0 (99.97% coverage)' },
         { month: 'February', description: 'First major unexplained anomaly bubble appears (~2000 events, both detectors)' },
-        { month: 'March', description: 'Climate scientist Maja Petersen joins HiLumi M.C., notices diurnal pattern' },
+        { month: 'March', description: 'Climate scientist Maja Andersen joins HiLumi M.C., notices diurnal pattern' },
         { month: 'June 14', description: '⭐ Maja discovers solar correlation using custom simulation (8,400 credits, 3 minutes)', highlight: true },
         { month: 'June 15', description: 'Standing ovation at plenary - solar correlation prevents future false positives' },
       ]

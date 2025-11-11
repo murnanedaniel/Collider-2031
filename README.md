@@ -2,7 +2,7 @@
 
 A design fiction exploring future particle physics infrastructure, set in 2031. Features ColliderLab, a democratized platform for HEP research, and follows climate scientist Maja Petersen as she hunts for anomalies in Foundation Space.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17578821.svg)](https://doi.org/10.5281/zenodo.17578821)
 
 ## Demo & Documentation
 
@@ -60,25 +60,27 @@ npm run build
 ## Project Structure
 
 ```
-ColliderLab/
+collider2031/
 ├── README.md                 # This file
 ├── CITATION.cff             # Citation metadata
-├── LICENSE                  # License information
-├── docs/                    # Documentation and concepts
-│   ├── timeline.md         # 2025-2031 technology roadmap
-│   ├── public_release_sprint.md  # Release planning
-│   ├── implementation_guide.md   # Development notes
-│   └── IMPLEMENTATION_SUMMARY.md # Complete feature list
-├── demo/                    # Interactive React application
-│   ├── src/                # React components and screens
-│   ├── public/             # Static assets and data
-│   └── package.json        # Dependencies
-└── notebooks/              # Analysis and data generation
+├── LICENSE                  # Dual license (CC-BY-4.0 + MIT)
+├── .gitignore               # Git ignore rules
+├── docs/                    # Public documentation
+│   └── timeline.md          # 2025-2031 technology roadmap
+└── demo/                    # Interactive React application
+    ├── src/                 # React components and screens
+    │   ├── components/      # UI components
+    │   ├── screens/         # Main application screens
+    │   ├── docs/            # In-app documentation
+    │   └── utils/           # Constants and utilities
+    ├── public/              # Static assets and data
+    ├── dist/                # Production build
+    └── package.json         # Dependencies
 ```
 
 ## Version History
 
-- **v1.0** (2024-11-11): Initial release with core framework and demo
+- **v1.0** (2025-11-11): Initial release with core framework and demo
 - **v1.1** (Planned): Enhanced documentation and arXiv paper
 
 ## Citation
@@ -86,12 +88,12 @@ ColliderLab/
 If you use or build upon Collider 2031, please cite:
 
 ```bibtex
-@software{murnane2024collider2031,
+@software{murnane2025collider2031,
   author = {Murnane, Daniel},
   title = {Collider 2031: A Design Fiction for Future HEP Infrastructure},
-  year = {2024},
+  year = {2025},
   url = {https://collider-2031.com},
-  doi = {10.5281/zenodo.XXXXX},
+  doi = {10.5281/zenodo.17578821},
   version = {1.0.0}
 }
 ```
@@ -108,29 +110,13 @@ This work is released under CC-BY-4.0 (content) and MIT (code). You're welcome t
 
 Please cite this repository appropriately. For substantial adaptations or collaborations, consider reaching out.
 
-## Design Fiction as Methodology
-
-Collider 2031 uses **design fiction** - a methodology that creates detailed, plausible future scenarios to explore implications of emerging technologies. By grounding speculative ideas in concrete narratives and working prototypes, design fiction enables:
-
-- **Critical examination** of technology trajectories
-- **Identification** of dependencies and inflection points
-- **Communication** of complex systems to diverse audiences
-- **Inspiration** for research directions and policy decisions
-
-This project builds on months of thinking about HEP infrastructure futures, condensed into an 8-hour implementation sprint.
-
-## The Story
-
-In 2031, climate scientist Maja Petersen joins the HiLumi Metacollaboration to investigate a mysterious anomaly in Foundation Space. Using the ColliderLab platform, she builds custom simulations incorporating solar physics, discovers a perfect temporal correlation with solar flares, and proposes an innovative distributed detector network using smartphone cameras. Her journey demonstrates how democratized infrastructure could transform particle physics research.
-
-## Development
+## Stack
 
 Built with:
 - **Framework**: React 18.3 + Vite 5.4
 - **Styling**: Tailwind CSS 3.4
 - **Routing**: React Router 6.26
 - **Visualization**: Three.js, Recharts
-- **Development**: ~8 hours of implementation
 
 ## License
 

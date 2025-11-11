@@ -8,9 +8,9 @@ authors:
     email: daniel.murnane@nbi.ku.dk
 title: "Collider 2031: A Design Fiction for Future HEP Infrastructure"
 version: 1.0.0
-date-released: 2024-11-11
+date-released: 2025-11-11
 url: "https://collider-2031.com"
-repository-code: "https://github.com/murnanedaniel/ColliderLab"
+repository-code: "https://github.com/murnanedaniel/collider2031"
 license: CC-BY-4.0
 keywords:
   - design fiction

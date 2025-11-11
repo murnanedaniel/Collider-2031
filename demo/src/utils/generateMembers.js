@@ -30,7 +30,7 @@ const FIRST_NAMES = [
 // Last names pool
 const LAST_NAMES = [
   'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez',
-  'Petersen', 'Hansen', 'Nielsen', 'Jensen', 'Müller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer',
+  'Andersen', 'Hansen', 'Nielsen', 'Jensen', 'Müller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer',
   'Dubois', 'Martin', 'Bernard', 'Thomas', 'Rossi', 'Russo', 'Ferrari', 'Esposito', 'Bianchi', 'Romano',
   'Tanaka', 'Suzuki', 'Takahashi', 'Watanabe', 'Wang', 'Li', 'Zhang', 'Liu', 'Kumar', 'Singh',
 ];
