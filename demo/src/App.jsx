@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AgentProvider } from './contexts/AgentContext';
 import NavigationBar from './components/layout/NavigationBar';
+import Landing from './screens/Landing';
 import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
 import FoundationSpace from './screens/FoundationSpace';
@@ -19,9 +20,12 @@ function App() {
     <AgentProvider>
       <BrowserRouter>
         <Routes>
+          {/* Landing page - no navigation bar */}
+          <Route path="/" element={<Landing />} />
+
           {/* Login route - no navigation bar */}
           <Route path={ROUTES.LOGIN} element={<Login />} />
-          
+
           {/* Main app routes - with navigation bar */}
           <Route path="/*" element={
             <>
@@ -37,9 +41,6 @@ function App() {
                 <Route path={ROUTES.TIMELINE} element={<Timeline />} />
                 <Route path={ROUTES.DOCS} element={<DocsPage />} />
                 <Route path={`${ROUTES.DOCS}/:docId`} element={<DocsPage />} />
-                
-                {/* Redirect root to login */}
-                <Route path="/" element={<Navigate to={ROUTES.LOGIN} replace />} />
               </Routes>
             </>
           } />

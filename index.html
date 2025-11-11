@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collider 2031 - A Design Fiction</title>
+    <meta name="description" content="What if particle physics was open, distributed, and AI-native? Explore a world where anyone can hunt for new physics using ColliderLab.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .context {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a1a1a;
+            border: 2px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .btn-disabled {
+            background: #f3f4f6;
+            color: #9ca3af;
+            cursor: not-allowed;
+            border: 2px solid #e5e7eb;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .doi-badge {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .doi-badge img {
+            height: 20px;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Collider 2031</h1>
+        <div class="subtitle">A Design Fiction</div>
+
+        <p class="tagline">
+            What if particle physics was open, distributed, and AI-native? Explore a world where anyone can hunt for new physics using ColliderLab.
+        </p>
+
+        <div class="context">
+            <strong>The year is 2031.</strong> After the Swiss Data Transparency Act, all LHC data is public and stored across millions of devices. Climate scientist Maja Andersen is hunting for anomalies in Foundation Space—a 100,000-dimensional learned representation of all particle physics events. Using differentiable simulation and distributed computing, she discovers that mysterious detector signals correlate perfectly with solar flares.
+        </div>
+
+        <div class="buttons">
+            <a href="./demo/" class="btn btn-primary">
+                <span>→</span>
+                <span>Enter ColliderLab</span>
+            </a>
+
+            <a href="https://github.com/murnanedaniel/collider2031" target="_blank" class="btn btn-secondary">
+                <span>&lt;/&gt;</span>
+                <span>View on GitHub</span>
+            </a>
+
+            <div class="btn btn-disabled">
+                <span>📹</span>
+                <span>Video (Coming Soon)</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>A design fiction by <strong>Daniel Murnane</strong></p>
+            <p>Niels Bohr Institute, University of Copenhagen</p>
+            <div class="doi-badge">
+                <a href="https://doi.org/10.5281/zenodo.17578821" target="_blank">
+                    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17578821.svg" alt="DOI">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -10,12 +10,12 @@
 
 **November 2025**
 - CERN publishes whitepaper on ML for trigger systems
-- First experiments with learned event representations
+- First studies on scaling foundation models to billion-event datasets (building on MPM, HEP-JEPA work)
 - Community discussions about data access policies
-- Nvidia announces next-gen H200 GPU clusters
+- Nvidia Blackwell B200 clusters begin deployment at major labs
 
 **December 2025**
-- FASER continues seeing hints of long-lived particle signals
+- FASER continues searching for long-lived particles with improved Run 3 sensitivity
 - Community debate about statistical significance thresholds
 - End-of-year funding discussions highlight compute bottlenecks
 
@@ -24,14 +24,15 @@
 ## 2026: Seeds of Change
 
 **Q1 2026**
-- **January**: First cross-detector ML workshop at CERN
+- **January**: 8th IML Workshop at CERN - concrete plans for cross-detector foundation model training agreed upon
 - **February**: Anthropic releases improved foundation models for scientific text
 - **March**: Belle II and LHCb publish competing analyses, highlighting collaboration silos
+- **April**: First Run 3 analyses using foundation model architectures published (ATLAS Higgs ML study)
 - Dr. Marcus Reed gives keynote at major ML conference on simulation-based inference
 
 **Q2 2026**
-- **April**: EU Commission launches "Open Research Data Initiative"
-- **May**: First successful GPU-accelerated Geant4 simulations published (10× speedup)
+- **April**: EU RAISE initiative expands with €50M funding call for AI-driven scientific research infrastructure
+- **May**: Graph-based GPU accelerator for EM showers achieves 15× speedup over Geant4 (building on Celeritas work)
 - **June**: **Dr. Marcus Reed gives viral TED talk "The AI Revolution in Particle Physics"**
   - Discusses differentiable simulation, foundation models for physics
   - Over 5M views in first month, sparks public interest
@@ -39,13 +40,17 @@
 
 **Q3 2026**
 - **July**: **LHC Run 3 ends, LS3 (Long Shutdown 3) begins**
-- **August**: First "differentiable simulation" workshop at ICML
-- **September**: Swiss government announces review of public research data policies
+- **August**: Graph-based accelerator extended to hadronic showers (8× speedup)
+- **September**: 5th MODE Workshop showcases first end-to-end differentiable detector optimization
+  - Swiss government announces review of public research data policies
 - CERN computing center reports LS3 presents opportunity to redesign data infrastructure
 
 **Q4 2026**
-- **October**: Meta releases "ScienceGPT" - multimodal model for research
-- **November**: ATLAS and CMS independently develop similar autoencoder approaches
+- **October**: Multiple AI scientist systems emerge (Polymathic AI scales to 5B parameters, Sakana AI Scientist v2)
+  - Prithvi-Climate foundation model demonstrates cross-domain scientific reasoning
+  - First automated hypothesis generation in particle physics (mixed results, 60% failure rate)
+- **November**: ATLAS and CMS expand autoencoder trigger usage (building on AXOL1TL/CICADA from 2024)
+  - Joint analysis working group forms to standardize anomaly detection approaches
 - **December**: LS3 work begins in earnest; collaborations debate future data policies
 
 ---
@@ -352,7 +357,7 @@
 ### Pessimistic Timeline (More Likely: ~30%)
 - Data mandate delayed or watered down
 - Geant5 arrives 2032, limited differentiability
-- Mistral doesn't commit compute (no drunk conversation)
+- Apex AI doesn't commit compute (no drunk conversation)
 - Compute remains scarce, rationed by committees
 - HL-LHC starts 2030 but infrastructure not ready
 - Maja would need institutional backing and years to pursue her idea

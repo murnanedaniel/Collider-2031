@@ -6,6 +6,7 @@ demo/node_modules/
 demo/dist/
 demo/build/
 *.log
+_site/
 
 # Environment variables
 .env

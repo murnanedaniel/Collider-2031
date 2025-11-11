@@ -30,6 +30,7 @@ Collider 2031 is a design fiction project exploring what particle physics resear
 
 The ColliderLab demo is a fully functional React application that tells Maja's story through interactive screens. Experience:
 
+- **Landing Page** - Project introduction with entry points
 - **Login & Welcome** - Beautiful animated introduction to 2031
 - **Dashboard** - View active bounties and credit balance
 - **Foundation Space** - Explore the 100k-dimensional latent space
