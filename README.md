@@ -1,6 +1,6 @@
 # Collider 2031
 
-A design fiction exploring future particle physics infrastructure, set in 2031. Features ColliderLab, a democratized platform for HEP research, and follows climate scientist Maja Petersen as she hunts for anomalies in Foundation Space.
+A design fiction exploring future particle physics infrastructure, set in 2031. Features ColliderLab, a democratized platform for HEP research, and follows climate scientist Maja Andersen as she hunts for anomalies in Foundation Space.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17578821.svg)](https://doi.org/10.5281/zenodo.17578821)
 
@@ -13,7 +13,7 @@ A design fiction exploring future particle physics infrastructure, set in 2031. 
 
 ## What is Collider 2031?
 
-Collider 2031 is a design fiction project exploring what particle physics research could look like in 2031 if current trends in open data, AI, and distributed computing converge. Through an interactive demonstration of the ColliderLab platform and the story of Maja Petersen, it presents 40+ interconnected technical concepts for democratized, AI-native HEP infrastructure.
+Collider 2031 is a design fiction project exploring what particle physics research could look like in 2031 if current trends in open data, AI, and distributed computing converge. Through an interactive demonstration of the ColliderLab platform and the story of Maja Andersen, it presents 40+ interconnected technical concepts for democratized, AI-native HEP infrastructure.
 
 ## Key Concepts
 

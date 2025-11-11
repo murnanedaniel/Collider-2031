@@ -187,7 +187,7 @@
   - Doesn't match any known systematic
   - Bounty posted: 15,000 credits
 - **March**: Multiple students investigate anomaly
-  - Climate scientist Maja Petersen (ETH Zürich Masters) joins HiLumi M.C.
+  - Climate scientist Maja Andersen (ETH Zürich Masters) joins HiLumi M.C.
   - Notices diurnal pattern in anomaly cluster
 - **April**: LORA fine-tuning enables rapid Foundation Space adaptations for individual projects
 - **May**: Maja develops solar correlation hypothesis
