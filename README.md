@@ -9,7 +9,7 @@ A design fiction exploring future particle physics infrastructure, set in 2031. 
 - 🌐 **Interactive Demo**: https://collider-2031.com
 - 📹 **Video Walkthrough**: [YouTube link - coming soon]
 - 📄 **Framework Document**: [docs/collider-2031-framework.pdf](docs/collider-2031-framework.pdf) *(coming soon)*
-- 📅 **Timeline**: [docs/timeline.md](docs/timeline.md)
+- 📅 **Concept docs**: [docs/timeline.md](docs/timeline.md)
 
 ## What is Collider 2031?
 
@@ -91,7 +91,7 @@ If you use or build upon Collider 2031, please cite:
 ```bibtex
 @software{murnane2025collider2031,
   author = {Murnane, Daniel},
-  title = {Collider 2031: A Design Fiction for Future HEP Infrastructure},
+  title = {Collider 2031: A Design Fiction and Platform for Exploring Future Collider Technologies},
   year = {2025},
   url = {https://collider-2031.com},
   doi = {10.5281/zenodo.17578821},
