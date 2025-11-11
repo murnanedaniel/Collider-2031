@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use or build upon Collider 2031, please cite it as below."
+authors:
+  - family-names: Murnane
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0003-4046-4822
+    affiliation: "Niels Bohr Institute, University of Copenhagen"
+    email: daniel.murnane@nbi.ku.dk
+title: "Collider 2031: A Design Fiction for Future HEP Infrastructure"
+version: 1.0.0
+date-released: 2024-11-11
+url: "https://collider-2031.com"
+repository-code: "https://github.com/murnanedaniel/ColliderLab"
+license: CC-BY-4.0
+keywords:
+  - design fiction
+  - particle physics
+  - HL-LHC
+  - infrastructure futures
+  - speculative design
+  - open science
+  - machine learning
+  - foundation models
+  - distributed computing
+  - high energy physics
+abstract: >
+  Collider 2031 is a design fiction exploring what particle physics
+  research could look like in 2031 if current trends in open data,
+  AI, and distributed computing converge. Through an interactive
+  demonstration of the ColliderLab platform and the story of climate
+  scientist Maja Petersen, it presents 40+ interconnected technical
+  concepts for democratized, AI-native HEP infrastructure, including
+  hit-level open data, 200 EB distributed storage across consumer
+  devices, 100,000-dimensional Foundation Space for event
+  representation, differentiable GPU-based detector simulation
+  (Geant5), and credit-based resource economies. The project uses
+  design fiction methodology to examine technology trajectories,
+  identify critical dependencies, and inspire discussion about the
+  future of particle physics research infrastructure.
+type: software

@@ -1,0 +1,47 @@
+{
+  "total_events": 90229,
+  "sm_events": 85500,
+  "anomaly_events": 4729,
+  "solar_anomaly": {
+    "count": 2000,
+    "time_window": [
+      16.05,
+      16.15
+    ],
+    "correlation": 0.94,
+    "atlas_events": 1000,
+    "cms_events": 1000
+  },
+  "background_anomalies": {
+    "count": 2729,
+    "num_clusters": 9
+  },
+  "processes": [
+    "QCD",
+    "Higgs",
+    "DiHiggs",
+    "Electroweak",
+    "Top"
+  ],
+  "detectors": [
+    "ATLAS",
+    "CMS"
+  ],
+  "coordinate_range": {
+    "min": -11.164009658822193,
+    "max": 11.197710627564392,
+    "sm_center": [
+      -0.47542903652081286,
+      -0.06167014385489486,
+      0.03548607429330095
+    ],
+    "sm_radius": 11.977120807984846
+  },
+  "process_counts": {
+    "QCD": 50000,
+    "Higgs": 5000,
+    "DiHiggs": 500,
+    "Electroweak": 20000,
+    "Top": 10000
+  }
+}
