@@ -7,6 +7,7 @@ export default function Timeline() {
   const [markdown, setMarkdown] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [collapsedSections, setCollapsedSections] = useState({});
 
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
@@ -17,6 +18,20 @@ export default function Timeline() {
       })
       .then(text => {
         setMarkdown(text);
+        // Initialize collapsed sections - collapse everything after "2031: Discovery Enablement & Maja's Story"
+        const collapsedState = {};
+        const mainSections = [
+          'Key Technology Trajectories',
+          'Critical Inflection Points',
+          'Alternative Scenarios',
+          'Real-World Dependencies',
+          'Turning Points That Could Derail This Timeline',
+          'Cultural Shifts Required'
+        ];
+        mainSections.forEach(section => {
+          collapsedState[section] = true;
+        });
+        setCollapsedSections(collapsedState);
         setLoading(false);
       })
       .catch(err => {
@@ -61,7 +76,53 @@ export default function Timeline() {
     gfm: true
   });
 
-  const htmlContent = marked.parse(markdown);
+  // Parse markdown into sections
+  const parseMarkdownIntoSections = (md) => {
+    const lines = md.split('\n');
+    const sections = [];
+    let currentSection = null;
+    let currentContent = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      
+      // Detect h2 headers (main sections)
+      if (line.startsWith('## ')) {
+        if (currentSection) {
+          sections.push({
+            ...currentSection,
+            content: currentContent.join('\n').trim()
+          });
+        }
+        currentSection = {
+          title: line.replace('## ', ''),
+          level: 2
+        };
+        currentContent = [];
+      } else if (currentSection) {
+        currentContent.push(line);
+      }
+    }
+
+    // Add final section
+    if (currentSection) {
+      sections.push({
+        ...currentSection,
+        content: currentContent.join('\n').trim()
+      });
+    }
+
+    return sections;
+  };
+
+  const sections = parseMarkdownIntoSections(markdown);
+
+  const toggleSection = (title) => {
+    setCollapsedSections(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
 
   return (
     <ScreenLayout
@@ -79,22 +140,58 @@ export default function Timeline() {
               traditional collaborations to Maja's 2031 discovery workflow.
             </p>
             <p className="font-medium">
-              Overall probability of this exact timeline: ~0.2% (requires multiple
+              Overall probability of this exact timeline: ~2% (requires multiple
               low-probability events to align perfectly)
             </p>
           </div>
         </div>
       </Card>
 
-      <div
-        className="timeline-content"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-        style={{
-          fontSize: '16px',
-          lineHeight: '1.7',
-          color: '#374151'
-        }}
-      />
+      <div className="space-y-4">
+        {sections.map((section, idx) => {
+          const isCollapsed = collapsedSections[section.title];
+          const isMainTimeline = section.title.includes('Discovery Enablement');
+          
+          return (
+            <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleSection(section.title)}
+                className={`w-full px-6 py-4 flex items-center justify-between transition-colors ${
+                  isCollapsed 
+                    ? 'bg-gray-50 hover:bg-gray-100' 
+                    : 'bg-white hover:bg-gray-50'
+                }`}
+              >
+                <h2 className="text-xl font-light text-left">
+                  {section.title}
+                </h2>
+                <svg 
+                  className={`w-5 h-5 text-gray-600 flex-shrink-0 ml-4 transition-transform ${
+                    isCollapsed ? '' : 'rotate-180'
+                  }`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </button>
+
+              {!isCollapsed && (
+                <div
+                  className="px-6 py-4 bg-white border-t border-gray-200 timeline-content"
+                  dangerouslySetInnerHTML={{ __html: marked.parse(section.content) }}
+                  style={{
+                    fontSize: '16px',
+                    lineHeight: '1.7',
+                    color: '#374151'
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
 
       <style>{`
         .timeline-content h1 {
@@ -109,7 +206,7 @@ export default function Timeline() {
         .timeline-content h2 {
           font-size: 1.875rem;
           font-weight: 400;
-          margin-top: 3rem;
+          margin-top: 0;
           margin-bottom: 1.5rem;
           color: #1f2937;
           border-bottom: 1px solid #d1d5db;
@@ -119,7 +216,7 @@ export default function Timeline() {
         .timeline-content h3 {
           font-size: 1.25rem;
           font-weight: 500;
-          margin-top: 2rem;
+          margin-top: 1.5rem;
           margin-bottom: 1rem;
           color: #374151;
         }

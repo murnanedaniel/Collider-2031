@@ -22,7 +22,7 @@ Collider 2031 is a design fiction project exploring what particle physics resear
 - **Foundation Space** - 100,000D learned latent space for HEP events
 - **Geant5** - Differentiable, GPU-based detector simulation
 - **Metacollaborations** - Cross-detector research communities
-- **SiReAaaS** - Simulation, Reconstruction, Analysis as a Service
+- **SiReAs** - Simulation, Reconstruction, Analysis as a Service
 - **Adversarial Unfolding** - ML-based detector calibration
 - **Credit Economy** - Distributed compute and storage marketplace
 

@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function SiReAaaSDoc() {
+export default function SiReAsDoc() {
   return (
     <div>
-      <h1 className="text-3xl font-light mb-6">SiReAaaS Platform</h1>
+      <h1 className="text-3xl font-light mb-6">SiReAs Platform</h1>
       
       <h2 className="text-xl font-medium mt-6 mb-3">Overview</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        SiReAaaS (Simulation, Reconstruction, and Analysis as a Service) is the unified 
+        SiReAs (Simulation, Reconstruction, and Analysis as a Service) is the unified 
         infrastructure platform for HL-LHC computing. Introduced in 2029, it replaced the 
         patchwork of experiment-specific frameworks with a single, scalable, GPU-native system.
       </p>
@@ -16,7 +16,7 @@ export default function SiReAaaSDoc() {
       
       <h3 className="text-lg font-medium mt-4 mb-2">Microservices Design</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        SiReAaaS decomposes traditional monolithic frameworks into containerized microservices:
+        SiReAs decomposes traditional monolithic frameworks into containerized microservices:
       </p>
       <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
         <li><strong>Event Generation</strong>: MadGraph, Pythia, custom generators</li>
@@ -50,7 +50,7 @@ export default function SiReAaaSDoc() {
 
       <h2 className="text-xl font-medium mt-6 mb-3">Credit-Based Access</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        SiReAaaS integrates with the metacollaboration credit economy:
+        SiReAs integrates with the metacollaboration credit economy:
       </p>
       <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
         <li>Jobs are paid for with credits</li>
@@ -61,10 +61,10 @@ export default function SiReAaaSDoc() {
 
       <h2 className="text-xl font-medium mt-6 mb-3">ColliderLab Integration</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        ColliderLab provides a user-friendly interface to SiReAaaS:
+        ColliderLab provides a user-friendly interface to SiReAs:
       </p>
       <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
-        <li>Modular simulation builder compiles to SiReAaaS workflows</li>
+        <li>Modular simulation builder compiles to SiReAs workflows</li>
         <li>Real-time monitoring of job progress and costs</li>
         <li>Automatic result caching and provenance tracking</li>
         <li>One-click deployment of custom analyses</li>
@@ -72,7 +72,7 @@ export default function SiReAaaSDoc() {
 
       <h2 className="text-xl font-medium mt-6 mb-3">Funding</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        SiReAaaS infrastructure is primarily funded by Mistral's 10 GW data center, with ~10% 
+        SiReAs infrastructure is primarily funded by Mistral's 10 GW data center, with ~10% 
         idle capacity (1M GPUs) dedicated to HL-LHC computing. This supports Maurizio Pierini's 
         2028 initiative to measure Higgs vacuum stability.
       </p>

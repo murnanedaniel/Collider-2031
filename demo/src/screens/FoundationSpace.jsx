@@ -680,7 +680,7 @@ export default function FoundationSpace() {
           {/* Info */}
           <Card className="bg-gray-50">
             <p className="text-xs text-gray-600 leading-relaxed">
-              Modular simulation powered by SiReAaaS. Geant5 differentiable mode enables 
+              Modular simulation powered by SiReAs. Geant5 differentiable mode enables 
               fast GPU-accelerated generation at ~100M events/hour.
             </p>
           </Card>

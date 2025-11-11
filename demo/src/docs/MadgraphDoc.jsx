@@ -55,7 +55,7 @@ export default function MadgraphDoc() {
         <li>Combined with custom physics (e.g., solar radiation effects)</li>
         <li>Configured via YAML without coding</li>
         <li>Chained with Pythia 9 showering and Geant5 detector simulation</li>
-        <li>Deployed at scale via SiReAaaS infrastructure</li>
+        <li>Deployed at scale via SiReAs infrastructure</li>
       </ul>
 
       <h2 className="text-xl font-medium mt-6 mb-3">Usage in Maja's Project</h2>

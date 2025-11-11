@@ -88,7 +88,7 @@ export default function SimulationBuilder() {
                   → Geant5 (detector sim)
                 </Link>
                 <Link to={ROUTES.DOCS + '/sireaas'} className="block text-gray-600 hover:text-gray-900">
-                  → SiReAaaS platform
+                  → SiReAs platform
                 </Link>
               </div>
             </Card>

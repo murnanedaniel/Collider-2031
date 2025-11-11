@@ -6,7 +6,7 @@ import FoundationSpaceDoc from './FoundationSpaceDoc';
 import MetacollaborationDoc from './MetacollaborationDoc';
 import Geant5Doc from './Geant5Doc';
 import MadgraphDoc from './MadgraphDoc';
-import SiReAaaSDoc from './SiReAaaSDoc';
+import SiReAsDoc from './SiReASDoc';
 import OpenDataDoc from './OpenDataDoc';
 import { ROUTES } from '@/utils/constants';
 
@@ -15,7 +15,7 @@ const DOCS = {
   'metacollaboration': { component: MetacollaborationDoc, title: 'Metacollaborations' },
   'geant5': { component: Geant5Doc, title: 'Geant5 Differentiable Simulation' },
   'madgraph': { component: MadgraphDoc, title: 'MadGraph 6' },
-  'sireaas': { component: SiReAaaSDoc, title: 'SiReAaaS Platform' },
+  'sireaas': { component: SiReAsDoc, title: 'SiReAs Platform' },
   'open-data': { component: OpenDataDoc, title: 'Open Data Mandate' },
 };
 
