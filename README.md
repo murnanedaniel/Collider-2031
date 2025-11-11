@@ -6,10 +6,10 @@ A design fiction exploring future particle physics infrastructure, set in 2031. 
 
 ## Demo & Documentation
 
-- 🌐 **Interactive Demo**: https://collider-2031.com
+- 🌐 **Interactive Demo**: https://www.danielmurnane.com/Collider-2031/
 - 📹 **Video Walkthrough**: [YouTube link - coming soon]
-- 📄 **Framework Document**: [docs/collider-2031-framework.pdf](docs/collider-2031-framework.pdf) *(coming soon)*
-- 📅 **Concept docs**: [docs/timeline.md](docs/timeline.md)
+- 📄 **Concept Documentation**: https://www.danielmurnane.com/Collider-2031/docs
+- 📅 **Timeline Documentation**: https://www.danielmurnane.com/Collider-2031/timeline
 
 ## What is Collider 2031?
 
@@ -62,7 +62,7 @@ npm run build
 
 ```
 collider2031/
-├── README.md                 # This file
+├── README.md                # This file
 ├── CITATION.cff             # Citation metadata
 ├── LICENSE                  # Dual license (CC-BY-4.0 + MIT)
 ├── .gitignore               # Git ignore rules
