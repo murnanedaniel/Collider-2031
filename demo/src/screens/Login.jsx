@@ -11,9 +11,17 @@ export default function Login() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [showDate, setShowDate] = useState(false);
   const [showYear, setShowYear] = useState(false);
+  const [currentDateTime, setCurrentDateTime] = useState('');
 
   useEffect(() => {
     if (isLoggedIn) {
+      // Get current date/time
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+      const dayName = now.toLocaleDateString('en-US', { weekday: 'long' });
+      const monthDay = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+      setCurrentDateTime(`It's ${timeStr}, ${dayName} ${monthDay}`);
+
       // Sequence: Welcome -> Date -> Year -> Button
       const timer1 = setTimeout(() => setShowWelcome(true), 300);
       const timer2 = setTimeout(() => setShowDate(true), 1300); // 1 second after welcome
@@ -55,7 +63,7 @@ export default function Login() {
             }`}
           >
             <p className="text-2xl md:text-3xl text-gray-500 font-light">
-              It's 9:40am, Wednesday October 22nd
+              {currentDateTime}
             </p>
           </div>
 
