@@ -25,5 +25,9 @@ export const ROUTES = {
   MEMBERS: '/members',
   TIMELINE: '/timeline',
   DOCS: '/docs',
+  METACOLLABORATION: '/metacollaboration',
+  DETECTOR_DESIGN: '/detector-design',
+  PROFILE: '/profile',
 };
+
 

@@ -13,6 +13,9 @@ import SolarConfirmation from './screens/SolarConfirmation';
 import MemberHeatmap from './screens/MemberHeatmap';
 import Timeline from './screens/Timeline';
 import DocsPage from './docs/DocsPage';
+import UserProfile from './screens/UserProfile';
+import MetacollaborationDashboard from './screens/MetacollaborationDashboard';
+import DetectorDesign from './screens/DetectorDesign';
 import { ROUTES } from './utils/constants';
 
 function App() {
@@ -41,6 +44,9 @@ function App() {
                 <Route path={ROUTES.TIMELINE} element={<Timeline />} />
                 <Route path={ROUTES.DOCS} element={<DocsPage />} />
                 <Route path={`${ROUTES.DOCS}/:docId`} element={<DocsPage />} />
+                <Route path={ROUTES.PROFILE} element={<UserProfile />} />
+                <Route path={ROUTES.METACOLLABORATION} element={<MetacollaborationDashboard />} />
+                <Route path={ROUTES.DETECTOR_DESIGN} element={<DetectorDesign />} />
               </Routes>
             </>
           } />

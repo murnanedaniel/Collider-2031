@@ -13,7 +13,7 @@ import { ROUTES } from '@/utils/constants';
 
 export default function FoundationSpace() {
   const { events, surfaces, simulatedEvents, loading, error } = useData();
-  
+
   // Use agent context
   const {
     isAgentOpen,
@@ -26,18 +26,18 @@ export default function FoundationSpace() {
     foundationSpaceState,
     setFoundationSpaceState,
   } = useAgent();
-  
+
   const [showSM, setShowSM] = useState(true);
   const [showProcesses, setShowProcesses] = useState(false);
   const [detectorFilter, setDetectorFilter] = useState('all');
   const [showSimulation, setShowSimulation] = useState(false);
   const [showAgentInModal, setShowAgentInModal] = useState(false);
-  
+
   // Time series controls (main page)
   const [timeOfDay, setTimeOfDay] = useState(0);
   const [showATLAS, setShowATLAS] = useState(true);
   const [showCMS, setShowCMS] = useState(true);
-  
+
   // Simulation state
   const [isRunning, setIsRunning] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -45,22 +45,22 @@ export default function FoundationSpace() {
   const [flareClass, setFlareClass] = useState('M5.4');
   const [eventRate, setEventRate] = useState(1000);
   const [simulationIntervalRef, setSimulationIntervalRef] = useState(null);
-  
+
   // Calibration state
   const [showSimulatedEvents, setShowSimulatedEvents] = useState(false);
   const [calibrationRotation, setCalibrationRotation] = useState(0);
   const [isCalibrating, setIsCalibrating] = useState(false);
   const [adversarialLoss, setAdversarialLoss] = useState(1.0);
   const [lossHistory, setLossHistory] = useState([]);
-  
+
   // Solar flare modal state
   const [showSolarFlareModal, setShowSolarFlareModal] = useState(false);
-  
+
   // Git commit modal state
   const [showCommitModal, setShowCommitModal] = useState(false);
   const [commitMessage, setCommitMessage] = useState('');
   const [commitSuccess, setCommitSuccess] = useState(false);
-  
+
   const blocks = [
     { id: 'sun', name: 'Sun Model', icon: '☀️', color: 'bg-yellow-100 border-yellow-300', library: 'Solaris 7.5' },
     { id: 'flare', name: 'Solar Flare', icon: '💥', color: 'bg-orange-100 border-orange-300', library: 'Solaris 7.5' },
@@ -68,10 +68,10 @@ export default function FoundationSpace() {
     { id: 'detector', name: 'Detector Digitization', icon: '📡', color: 'bg-purple-100 border-purple-300', library: 'Geant5' },
   ];
   const [activeBlocks, setActiveBlocks] = useState(['collider', 'detector']);
-  
+
   const toggleBlock = (blockId) => {
-    setActiveBlocks(prev => 
-      prev.includes(blockId) 
+    setActiveBlocks(prev =>
+      prev.includes(blockId)
         ? prev.filter(id => id !== blockId)
         : [...prev, blockId]
     );
@@ -97,7 +97,7 @@ export default function FoundationSpace() {
       cmsCount: 0,
       correlation: 0.94
     };
-    
+
     const anomalies = events.filter(e => e.is_solar);
     return {
       totalAnomalies: anomalies.length,
@@ -122,7 +122,7 @@ export default function FoundationSpace() {
     const interval = setInterval(() => {
       currentStep++;
       const newProgress = (currentStep / totalSteps) * 100;
-      
+
       if (currentStep >= totalSteps) {
         clearInterval(interval);
         setProgress(100);
@@ -134,11 +134,11 @@ export default function FoundationSpace() {
       } else {
         setProgress(newProgress);
       }
-      
+
       // Generate events at realistic rate (~100M total over 1 min)
       setEventsGenerated(prev => prev + Math.floor(Math.random() * 160000 + 140000));
     }, updateInterval);
-    
+
     setSimulationIntervalRef(interval);
   };
 
@@ -157,7 +157,7 @@ export default function FoundationSpace() {
   const handleCalibrate = () => {
     setIsCalibrating(true);
     setLossHistory([1.0]); // Start with high loss
-    
+
     // Animate rotation from 0 to 1 over 12 seconds
     const duration = 12000; // 12 seconds
     const updateInterval = 50; // Update every 50ms
@@ -167,16 +167,16 @@ export default function FoundationSpace() {
     const interval = setInterval(() => {
       currentStep++;
       const newRotation = currentStep / totalSteps;
-      
+
       // Calculate adversarial loss - decreases as rotation approaches alignment
       // Using exponential decay with some noise for realism
       const baseLoss = Math.exp(-5 * newRotation); // Exponential decay
       const noise = (Math.random() - 0.5) * 0.05; // Small random fluctuations
       const currentLoss = Math.max(0.001, Math.min(1.0, baseLoss + noise));
-      
+
       setAdversarialLoss(currentLoss);
       setLossHistory(prev => [...prev, currentLoss]);
-      
+
       if (currentStep >= totalSteps) {
         clearInterval(interval);
         setCalibrationRotation(1);
@@ -190,10 +190,10 @@ export default function FoundationSpace() {
 
   const handleCommitSubmit = () => {
     if (!commitMessage.trim()) return;
-    
+
     // Simulate git commit
     setCommitSuccess(true);
-    
+
     // Reset after showing success message
     setTimeout(() => {
       setShowCommitModal(false);
@@ -204,14 +204,14 @@ export default function FoundationSpace() {
 
   const handleSimulationAgentSubmit = (query) => {
     const lowerQuery = query.toLowerCase();
-    
+
     // Check if requesting solar simulation
     if ((lowerQuery.includes('solar') || lowerQuery.includes('solaris')) &&
-        (lowerQuery.includes('simulation') || lowerQuery.includes('sim'))) {
+      (lowerQuery.includes('simulation') || lowerQuery.includes('sim'))) {
       // Add sun and flare blocks
       setActiveBlocks(['sun', 'flare', 'collider', 'detector']);
       setShowAgentInModal(false);
-      
+
       // Set flare class if specified
       if (lowerQuery.includes('m5.4')) {
         setFlareClass('M5.4');
@@ -220,7 +220,7 @@ export default function FoundationSpace() {
   };
 
   return (
-    <ScreenLayout 
+    <ScreenLayout
       title="Foundation Space"
       subtitle="100,000-dimensional latent space of HL-LHC events"
     >
@@ -305,7 +305,7 @@ export default function FoundationSpace() {
                   <span className="w-3 h-3 rounded-full bg-atlas-red"></span>
                   <span className="text-sm">ATLAS</span>
                 </label>
-                
+
                 <label className="flex items-center space-x-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -330,12 +330,12 @@ export default function FoundationSpace() {
               <h3 className="font-medium mb-4">Model Calibration</h3>
               <div className="space-y-4">
                 <p className="text-sm text-gray-700">
-                  Simulated events are now visible in the viewer (orange/yellow). 
+                  Simulated events are now visible in the viewer (orange/yellow).
                   {calibrationRotation === 0 && " They're currently misaligned with the real anomaly."}
                   {calibrationRotation > 0 && calibrationRotation < 1 && " Calibrating..."}
                   {calibrationRotation === 1 && " Calibration complete! The model now matches the observed pattern."}
                 </p>
-                
+
                 {/* Adversarial Loss Display */}
                 {isCalibrating && (
                   <div className="bg-white p-3 rounded border border-yellow-300">
@@ -347,7 +347,7 @@ export default function FoundationSpace() {
                     <div className="h-16 bg-gray-50 rounded relative overflow-hidden">
                       <svg width="100%" height="100%" className="absolute inset-0">
                         <polyline
-                          points={lossHistory.map((loss, i) => 
+                          points={lossHistory.map((loss, i) =>
                             `${(i / Math.max(lossHistory.length - 1, 1)) * 100},${(1 - loss) * 100}`
                           ).join(' ')}
                           fill="none"
@@ -363,7 +363,7 @@ export default function FoundationSpace() {
                     </div>
                   </div>
                 )}
-                
+
                 {calibrationRotation === 1 && (
                   <div className="bg-white p-3 rounded border border-green-300">
                     <div className="flex justify-between items-center">
@@ -373,7 +373,7 @@ export default function FoundationSpace() {
                     <div className="text-xs text-gray-500 mt-1">Model converged successfully</div>
                   </div>
                 )}
-                
+
                 {calibrationRotation < 1 && (
                   <button
                     onClick={handleCalibrate}
@@ -406,20 +406,7 @@ export default function FoundationSpace() {
             </Card>
           )}
 
-          {/* Narrative Text */}
-          <Card className="bg-gray-50">
-            <div className="prose prose-sm max-w-none">
-              <p className="text-gray-700 leading-relaxed">
-                <strong>Foundation Space</strong> is a 100,000-dimensional learned latent space where 
-                all HL-LHC events are embedded. The Standard Model surface contains 99.97% of events. 
-                This anomalous bubble sits outside—and it's correlated across detectors.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-3">
-                The temporal pattern is clear: events drift from the SM surface during specific time 
-                windows, then return. Both ATLAS and CMS see this behavior simultaneously.
-              </p>
-            </div>
-          </Card>
+
         </div>
 
         {/* Right Sidebar: Controls + Tools */}
@@ -437,7 +424,7 @@ export default function FoundationSpace() {
                 />
                 <span className="text-sm">SM Surface</span>
               </label>
-              
+
               <label className="flex items-center space-x-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -501,8 +488,8 @@ export default function FoundationSpace() {
 
           {/* Documentation Link */}
           <Card className="bg-gray-50">
-            <Link 
-              to={ROUTES.DOCS + '/foundation-space'} 
+            <Link
+              to={ROUTES.DOCS + '/foundation-space'}
               className="text-sm text-gray-900 hover:text-gray-600 transition-colors font-medium"
             >
               Learn about Foundation Space →
@@ -544,7 +531,7 @@ export default function FoundationSpace() {
                   </div>
                 </div>
               </Card>
-              
+
               {/* Show current modules */}
               <div className="mt-4">
                 <h3 className="font-medium mb-3 text-sm">Active Modules</h3>
@@ -640,7 +627,7 @@ export default function FoundationSpace() {
                         <span className="font-medium">{progress}%</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div 
+                        <div
                           className="bg-gray-900 h-3 rounded-full transition-all duration-300"
                           style={{ width: `${progress}%` }}
                         />
@@ -680,7 +667,7 @@ export default function FoundationSpace() {
           {/* Info */}
           <Card className="bg-gray-50">
             <p className="text-xs text-gray-600 leading-relaxed">
-              Modular simulation powered by SiReAs. Geant5 differentiable mode enables 
+              Modular simulation powered by SiReAs. Geant5 differentiable mode enables
               fast GPU-accelerated generation at ~100M events/hour.
             </p>
           </Card>
@@ -747,8 +734,8 @@ export default function FoundationSpace() {
             <div className="pt-4 border-t border-gray-200">
               <h3 className="font-medium mb-2">Reference</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                <strong>NOAA/SWPC Solar Event Report</strong><br/>
-                Event #2031-0614-M54<br/>
+                <strong>NOAA/SWPC Solar Event Report</strong><br />
+                Event #2031-0614-M54<br />
                 <a href="#" className="text-blue-600 hover:underline">
                   https://swpc.noaa.gov/products/solar-event-report/2031/06/14/M5.4
                 </a>
@@ -757,8 +744,8 @@ export default function FoundationSpace() {
 
             <Card className="bg-blue-50 border-blue-200">
               <p className="text-xs text-gray-700 leading-relaxed">
-                <strong>Analysis:</strong> Temporal correlation with LHC anomaly events suggests 
-                solar particle flux may be affecting detector response. The timing matches within 
+                <strong>Analysis:</strong> Temporal correlation with LHC anomaly events suggests
+                solar particle flux may be affecting detector response. The timing matches within
                 2 minutes of anomaly onset across both ATLAS and CMS.
               </p>
             </Card>

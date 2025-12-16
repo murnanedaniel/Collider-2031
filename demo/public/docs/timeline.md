@@ -2,13 +2,13 @@
 
 ## 2025: Foundation Year
 
-**October 2025** - *Starting Point (We Are Here)*
+**October 2025** 
 - LHC Run 3 in full swing at 13.6 TeV
 - GPT-4 class models standard in research
 - Traditional collaboration structure still dominant
 - Dr. Marcus Reed moves to UW-Madison as Data Science Institute Director
 
-**November 2025**
+**November 2025** 
 - CERN publishes whitepaper on ML for trigger systems
 - First studies on scaling foundation models to billion-event datasets (building on MPM, HEP-JEPA work)
 - Community discussions about data access policies
@@ -23,7 +23,7 @@
 
 ## 2026: Seeds of Change
 
-**Q1 2026**
+**Q1 2026** - *(We Are Here)*
 - **January**: 8th IML Workshop at CERN - concrete plans for cross-detector foundation model training agreed upon
 - **February**: Anthropic releases improved foundation models for scientific text
 - **March**: Belle II and LHCb publish competing analyses, highlighting collaboration silos
@@ -154,7 +154,7 @@
 
 **Q2 2030**
 - **May**: Final HL-LHC dry runs with beam
-- **June**: **🎉 HL-LHC FIRST BEAM - Run 4 begins!**
+- **June**: **HL-LHC FIRST BEAM - Run 4 begins!**
   - 14 TeV collisions at unprecedented luminosity
   - All L1 trigger data stored in real-time (1 MHz)
   - Distributed storage infrastructure handling 1 PB/day

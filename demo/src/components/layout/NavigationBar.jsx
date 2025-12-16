@@ -8,7 +8,7 @@ export default function NavigationBar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { resetAllState } = useAgent();
-  
+
   const navItems = [
     { label: 'Dashboard', path: ROUTES.DASHBOARD },
     { label: 'Foundation Space', path: ROUTES.FOUNDATION },
@@ -31,17 +31,16 @@ export default function NavigationBar() {
             <Link to={ROUTES.DASHBOARD} className="text-xl font-light tracking-wider">
               ColliderLab
             </Link>
-            
-            <div className="flex space-x-8">
+
+            <div className="flex space-x-8 h-full items-center">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-gray-900 border-b-2 border-gray-900 pb-[22px]'
-                      : 'text-gray-500 hover:text-gray-900 pb-[22px]'
-                  }`}
+                  className={`text-sm font-medium transition-colors h-full flex items-center ${isActive(item.path)
+                      ? 'text-gray-900 border-b-2 border-gray-900'
+                      : 'text-gray-500 hover:text-gray-900'
+                    }`}
                 >
                   {item.label}
                 </Link>

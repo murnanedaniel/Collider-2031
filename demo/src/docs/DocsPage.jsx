@@ -8,6 +8,8 @@ import Geant5Doc from './Geant5Doc';
 import MadgraphDoc from './MadgraphDoc';
 import SiReAsDoc from './SiReASDoc';
 import OpenDataDoc from './OpenDataDoc';
+import DistributedStorageDoc from './DistributedStorageDoc';
+import CreditEconomyDoc from './CreditEconomyDoc';
 import { ROUTES } from '@/utils/constants';
 
 const DOCS = {
@@ -17,6 +19,8 @@ const DOCS = {
   'madgraph': { component: MadgraphDoc, title: 'MadGraph 6' },
   'sireaas': { component: SiReAsDoc, title: 'SiReAs Platform' },
   'open-data': { component: OpenDataDoc, title: 'Open Data Mandate' },
+  'distributed-storage': { component: DistributedStorageDoc, title: 'Distributed Storage' },
+  'credit-economy': { component: CreditEconomyDoc, title: 'Credit Economy' },
 };
 
 export default function DocsPage() {
@@ -42,7 +46,7 @@ export default function DocsPage() {
   }
 
   const doc = DOCS[docId];
-  
+
   if (!doc) {
     return (
       <ScreenLayout>

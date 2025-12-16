@@ -38,10 +38,14 @@ export default function Dashboard() {
         {/* Welcome Section */}
         <div>
           <div className="flex items-center space-x-3 mb-3">
-            <h2 className="text-3xl font-light">Welcome back, {MAJA_INFO.name}</h2>
-            <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded border border-blue-200">
-              HiLumi M.C.
-            </span>
+            <h2 className="text-3xl font-light">
+              Welcome back, <Link to={ROUTES.PROFILE} className="hover:text-gray-600 transition-colors">{MAJA_INFO.name}</Link>
+            </h2>
+            <Link to={ROUTES.METACOLLABORATION}>
+              <span className="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer">
+                HiLumi M.C.
+              </span>
+            </Link>
           </div>
           <p className="text-gray-500">
             {MAJA_INFO.institution} • {MAJA_INFO.field}
@@ -84,13 +88,13 @@ export default function Dashboard() {
                 <div className="text-xs text-gray-500">credits</div>
               </div>
             </div>
-            
+
             <p className="text-gray-600 leading-relaxed">
               Investigate anomalous event cluster appearing with temporal pattern in ATLAS and CMS data.
-              Cross-detector correlation coefficient: 0.94. Events drift from Standard Model 
+              Cross-detector correlation coefficient: 0.94. Events drift from Standard Model
               surface during specific time windows.
             </p>
-            
+
             <div className="pt-2">
               <button
                 onClick={() => setShowBountyModal(true)}
@@ -105,21 +109,28 @@ export default function Dashboard() {
         {/* Quick Navigation */}
         <div>
           <h3 className="text-lg font-medium mb-4">Quick Access</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link to={ROUTES.FOUNDATION}>
               <Card className="hover:shadow-md transition-shadow cursor-pointer">
                 <div className="text-sm text-gray-500 uppercase tracking-wide mb-1">Explore</div>
                 <div className="font-medium">Foundation Space</div>
               </Card>
             </Link>
-            
+
             <Link to={ROUTES.MEMBERS}>
               <Card className="hover:shadow-md transition-shadow cursor-pointer">
                 <div className="text-sm text-gray-500 uppercase tracking-wide mb-1">Network</div>
                 <div className="font-medium">Member Heatmap</div>
               </Card>
             </Link>
-            
+
+            <Link to={ROUTES.DETECTOR_DESIGN}>
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <div className="text-sm text-gray-500 uppercase tracking-wide mb-1">Design</div>
+                <div className="font-medium">Detector Studio</div>
+              </Card>
+            </Link>
+
             <Link to={ROUTES.DOCS}>
               <Card className="hover:shadow-md transition-shadow cursor-pointer">
                 <div className="text-sm text-gray-500 uppercase tracking-wide mb-1">Learn</div>

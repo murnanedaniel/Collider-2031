@@ -3,11 +3,85 @@ import { marked } from 'marked';
 import ScreenLayout from '@/components/layout/ScreenLayout';
 import Card from '@/components/ui/Card';
 
+import TimelineHeaderVisualization from '@/components/viz/TimelineHeaderVisualization';
+
 export default function Timeline() {
   const [markdown, setMarkdown] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [collapsedSections, setCollapsedSections] = useState({});
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Find all year sections
+      const yearElements = [];
+      for (let year = 2025; year <= 2031; year++) {
+        const el = document.getElementById(`year-${year}`);
+        if (el) yearElements.push({ year, el });
+      }
+
+      if (yearElements.length === 0) {
+        // Fallback to simple scroll if elements not ready
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
+        setScrollProgress(progress);
+        return;
+      }
+
+      // Calculate progress based on which year section is in view
+      // We want the dot to be at 'year' when that year's section hits the top (minus offset)
+      // And move towards 'year+1' as we scroll through the section
+
+      const offset = 200; // Pixel offset from top where "active" starts
+      const scrollY = window.scrollY + offset;
+
+      // Find current interval
+      let currentYearIndex = -1;
+      for (let i = 0; i < yearElements.length; i++) {
+        if (scrollY >= yearElements[i].el.offsetTop) {
+          currentYearIndex = i;
+        } else {
+          break;
+        }
+      }
+
+      let semanticProgress = 0;
+
+      if (currentYearIndex === -1) {
+        // Before 2025
+        const firstTop = yearElements[0].el.offsetTop;
+        semanticProgress = Math.max(0, scrollY / firstTop) * (1 / 7) * 0.5; // Just a little movement before start
+      } else if (currentYearIndex >= yearElements.length - 1) {
+        // After 2031 (last section)
+        // Map 2031 -> 2032 based on progress through the last section
+        const currentEl = yearElements[currentYearIndex].el;
+        const sectionHeight = currentEl.offsetHeight;
+        const progressInSection = Math.min(1, (scrollY - currentEl.offsetTop) / sectionHeight);
+
+        // Map index 6 (2031) to index 7 (2032)
+        semanticProgress = (6 + progressInSection) / 7;
+      } else {
+        // Between years
+        const currentEl = yearElements[currentYearIndex].el;
+        const nextEl = yearElements[currentYearIndex + 1].el;
+
+        const sectionStart = currentEl.offsetTop;
+        const sectionEnd = nextEl.offsetTop;
+        const sectionHeight = sectionEnd - sectionStart;
+
+        const progressInSection = (scrollY - sectionStart) / sectionHeight;
+
+        // Map current index to next index
+        semanticProgress = (currentYearIndex + progressInSection) / 7;
+      }
+
+      setScrollProgress(Math.min(Math.max(semanticProgress, 0), 1));
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loading, collapsedSections]);
 
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
@@ -85,7 +159,7 @@ export default function Timeline() {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      
+
       // Detect h2 headers (main sections)
       if (line.startsWith('## ')) {
         if (currentSection) {
@@ -129,6 +203,8 @@ export default function Timeline() {
       title="Timeline to ColliderLab"
       subtitle="The path from today to Maja's discovery (2025-2031)"
     >
+      <TimelineHeaderVisualization progress={scrollProgress} />
+
       <Card className="bg-blue-50 border-blue-200 mb-6">
         <div className="flex items-start space-x-3">
           <svg className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,26 +227,28 @@ export default function Timeline() {
         {sections.map((section, idx) => {
           const isCollapsed = collapsedSections[section.title];
           const isMainTimeline = section.title.includes('Discovery Enablement');
-          
+
+          // Try to extract year from title for semantic scrolling
+          const yearMatch = section.title.match(/^(\d{4}):/);
+          const yearId = yearMatch ? `year-${yearMatch[1]}` : undefined;
+
           return (
-            <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden">
+            <div key={idx} id={yearId} className="border border-gray-200 rounded-lg overflow-hidden">
               <button
                 onClick={() => toggleSection(section.title)}
-                className={`w-full px-6 py-4 flex items-center justify-between transition-colors ${
-                  isCollapsed 
-                    ? 'bg-gray-50 hover:bg-gray-100' 
-                    : 'bg-white hover:bg-gray-50'
-                }`}
+                className={`w-full px-6 py-4 flex items-center justify-between transition-colors ${isCollapsed
+                  ? 'bg-gray-50 hover:bg-gray-100'
+                  : 'bg-white hover:bg-gray-50'
+                  }`}
               >
                 <h2 className="text-xl font-light text-left">
                   {section.title}
                 </h2>
-                <svg 
-                  className={`w-5 h-5 text-gray-600 flex-shrink-0 ml-4 transition-transform ${
-                    isCollapsed ? '' : 'rotate-180'
-                  }`}
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className={`w-5 h-5 text-gray-600 flex-shrink-0 ml-4 transition-transform ${isCollapsed ? '' : 'rotate-180'
+                    }`}
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
