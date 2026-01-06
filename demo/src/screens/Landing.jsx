@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/utils/constants';
 import Button from '@/components/ui/Button';
+import VideoModal from '@/components/ui/VideoModal';
 
 export default function Landing() {
   const navigate = useNavigate();
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4 py-12">
@@ -43,11 +45,11 @@ export default function Landing() {
           </Button>
 
           <Button
-            disabled
+            onClick={() => setIsVideoOpen(true)}
             variant="secondary"
-            className="w-full text-base md:text-lg py-4 opacity-50 cursor-not-allowed"
+            className="w-full text-base md:text-lg py-4"
           >
-            📹 Video (Coming Soon)
+            📹 Video Demo
           </Button>
         </div>
 
@@ -68,6 +70,12 @@ export default function Landing() {
           </a>
         </div>
       </div>
+
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        videoUrl="https://youtu.be/NB5Pq1obTlY"
+      />
     </div>
   );
 }

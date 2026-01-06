@@ -7,7 +7,7 @@ A design fiction exploring future particle physics infrastructure, set in 2031. 
 ## Demo & Documentation
 
 - 🌐 **Interactive Demo**: https://www.danielmurnane.com/Collider-2031/
-- 📹 **Video Walkthrough**: [YouTube link - coming soon]
+- 📹 **Video Walkthrough**: https://youtu.be/NB5Pq1obTlY
 - 📄 **Concept Documentation**: https://www.danielmurnane.com/Collider-2031/docs
 - 📅 **Timeline Documentation**: https://www.danielmurnane.com/Collider-2031/timeline
 
