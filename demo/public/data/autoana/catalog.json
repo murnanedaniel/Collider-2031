@@ -1,0 +1,21 @@
+{
+  "version": "v1",
+  "generated_at": "2031-01-01T00:00:00Z",
+  "analyses": [
+    {
+      "id": "dijet-resonance",
+      "title": "Heavy resonance search (dijet)",
+      "subtitle": "Classic bread-and-butter ATLAS analysis pipeline demo",
+      "tags": ["Run-3", "Jets", "BSM", "Resonance"],
+      "last_updated": "2030-11-18T08:15:00Z"
+    },
+    {
+      "id": "wjets-control",
+      "title": "W+jets control region tightening",
+      "subtitle": "Prompt-driven cut tuning and systematic checks (simulated)",
+      "tags": ["MET", "W+jets", "Systematics"],
+      "last_updated": "2030-11-18T08:15:00Z"
+    }
+  ]
+}
+

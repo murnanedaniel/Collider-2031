@@ -16,6 +16,8 @@ import DocsPage from './docs/DocsPage';
 import UserProfile from './screens/UserProfile';
 import MetacollaborationDashboard from './screens/MetacollaborationDashboard';
 import DetectorDesign from './screens/DetectorDesign';
+import AutoAnaStart from './screens/deprecated/AutoAnaStart';
+import AutoAnaDashboard from './screens/deprecated/AutoAnaDashboard';
 import { ROUTES } from './utils/constants';
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
                 <Route path={ROUTES.PROFILE} element={<UserProfile />} />
                 <Route path={ROUTES.METACOLLABORATION} element={<MetacollaborationDashboard />} />
                 <Route path={ROUTES.DETECTOR_DESIGN} element={<DetectorDesign />} />
+                <Route path={ROUTES.DEPRECATED_AUTOANA} element={<AutoAnaStart />} />
+                <Route path={`${ROUTES.DEPRECATED_AUTOANA}/:analysisId`} element={<AutoAnaDashboard />} />
               </Routes>
             </>
           } />

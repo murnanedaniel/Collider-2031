@@ -28,6 +28,7 @@ export const ROUTES = {
   METACOLLABORATION: '/metacollaboration',
   DETECTOR_DESIGN: '/detector-design',
   PROFILE: '/profile',
+  DEPRECATED_AUTOANA: '/deprecated/autoana',
 };
 
 

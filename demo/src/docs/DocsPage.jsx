@@ -31,15 +31,34 @@ export default function DocsPage() {
     // Index page showing all docs
     return (
       <ScreenLayout title="Documentation" subtitle="Learn about ColliderLab's core technologies">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Object.entries(DOCS).map(([id, { title }]) => (
-            <Link key={id} to={`${ROUTES.DOCS}/${id}`}>
-              <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
-                <h3 className="font-medium mb-2">{title}</h3>
-                <p className="text-sm text-gray-600">Click to read more →</p>
-              </Card>
-            </Link>
-          ))}
+        <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(DOCS).map(([id, { title }]) => (
+              <Link key={id} to={`${ROUTES.DOCS}/${id}`}>
+                <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                  <h3 className="font-medium mb-2">{title}</h3>
+                  <p className="text-sm text-gray-600">Click to read more →</p>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          <Card className="border-l-4 border-yellow-500 bg-yellow-50">
+            <div className="space-y-3">
+              <div>
+                <div className="text-xs text-yellow-900 uppercase tracking-wide mb-1">Deprecated / legacy</div>
+                <h3 className="font-medium text-yellow-900">AutoAna (legacy demo)</h3>
+              </div>
+              <div className="text-sm text-yellow-800">
+                This area is deprecated and preserved for historical reference. Outputs are simulated and may be wrong.
+              </div>
+              <div>
+                <Link to={ROUTES.DEPRECATED_AUTOANA} className="btn-secondary">
+                  Open AutoAna (deprecated) →
+                </Link>
+              </div>
+            </div>
+          </Card>
         </div>
       </ScreenLayout>
     );

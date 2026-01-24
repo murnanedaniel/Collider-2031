@@ -1,0 +1,49 @@
+{
+  "analysis_id": "dijet-resonance",
+  "plots": {
+    "mjj": {
+      "title": "Dijet mass distribution",
+      "x_label": "m_jj (GeV)",
+      "y_label": "Events / bin",
+      "bins": [
+        { "x": 800, "sm": 2200, "data": 2235, "bsm": 35 },
+        { "x": 1000, "sm": 1650, "data": 1672, "bsm": 30 },
+        { "x": 1200, "sm": 1180, "data": 1201, "bsm": 28 },
+        { "x": 1400, "sm": 820, "data": 832, "bsm": 25 },
+        { "x": 1600, "sm": 560, "data": 574, "bsm": 22 },
+        { "x": 1800, "sm": 390, "data": 402, "bsm": 20 },
+        { "x": 2000, "sm": 270, "data": 282, "bsm": 18 },
+        { "x": 2200, "sm": 190, "data": 199, "bsm": 16 },
+        { "x": 2400, "sm": 135, "data": 143, "bsm": 15 },
+        { "x": 2600, "sm": 98, "data": 104, "bsm": 14 },
+        { "x": 2800, "sm": 72, "data": 79, "bsm": 13 },
+        { "x": 3000, "sm": 54, "data": 57, "bsm": 12 }
+      ]
+    },
+    "pulls": {
+      "title": "Data - SM pull",
+      "x_label": "m_jj (GeV)",
+      "y_label": "Pull (σ)",
+      "points": [
+        { "x": 800, "pull": 0.3 },
+        { "x": 1000, "pull": 0.2 },
+        { "x": 1200, "pull": 0.4 },
+        { "x": 1400, "pull": 0.2 },
+        { "x": 1600, "pull": 0.6 },
+        { "x": 1800, "pull": 0.5 },
+        { "x": 2000, "pull": 0.7 },
+        { "x": 2200, "pull": 0.5 },
+        { "x": 2400, "pull": 0.6 },
+        { "x": 2600, "pull": 0.5 },
+        { "x": 2800, "pull": 0.8 },
+        { "x": 3000, "pull": 0.6 }
+      ]
+    }
+  },
+  "outputs": [
+    { "name": "workspace.root", "type": "ROOT", "size_kb": 812 },
+    { "name": "fit_diagnostics.json", "type": "JSON", "size_kb": 44 },
+    { "name": "fig_mjj.png", "type": "PNG", "size_kb": 220 }
+  ]
+}
+

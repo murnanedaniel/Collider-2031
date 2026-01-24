@@ -1,0 +1,95 @@
+{
+  "analysis_id": "dijet-resonance",
+  "workflow_name": "dijet_resonance_pipeline",
+  "nodes": [
+    {
+      "id": "checkout",
+      "name": "Checkout analysis repo",
+      "depends_on": [],
+      "duration_s": 8,
+      "logs": [
+        "Cloning repository...",
+        "Resolving submodules...",
+        "Checked out commit 9f3b7c1 (simulated)."
+      ]
+    },
+    {
+      "id": "setup",
+      "name": "Setup environment",
+      "depends_on": ["checkout"],
+      "duration_s": 12,
+      "logs": [
+        "Setting up environment (simulated)...",
+        "Configuring ROOT/CMSSW-like runtime...",
+        "Environment ready."
+      ]
+    },
+    {
+      "id": "skimming",
+      "name": "Skim datasets",
+      "depends_on": ["setup"],
+      "duration_s": 18,
+      "logs": [
+        "Reading input datasets...",
+        "Applying basic object selection...",
+        "Skim complete. Output: skimmed.root (simulated)."
+      ]
+    },
+    {
+      "id": "reco",
+      "name": "Reconstruction / calibration",
+      "depends_on": ["skimming"],
+      "duration_s": 22,
+      "logs": [
+        "Running reconstruction pass...",
+        "Applying calibrations and scale factors...",
+        "Reconstruction complete."
+      ]
+    },
+    {
+      "id": "selection",
+      "name": "Event selection",
+      "depends_on": ["reco"],
+      "duration_s": 16,
+      "logs": [
+        "Applying selection cuts...",
+        "Cuts: jet pT, |y|, m_jj window (simulated).",
+        "Selected events stored."
+      ]
+    },
+    {
+      "id": "systematics",
+      "name": "Systematics evaluation",
+      "depends_on": ["selection"],
+      "duration_s": 20,
+      "logs": [
+        "Computing systematic variations...",
+        "JES/JER, luminosity, background modeling (simulated).",
+        "Systematics complete."
+      ]
+    },
+    {
+      "id": "fit",
+      "name": "Statistical fit",
+      "depends_on": ["systematics"],
+      "duration_s": 14,
+      "logs": [
+        "Building likelihood model...",
+        "Fitting background + signal hypothesis (simulated)...",
+        "Fit converged."
+      ]
+    },
+    {
+      "id": "plots",
+      "name": "Make plots",
+      "depends_on": ["fit"],
+      "duration_s": 10,
+      "logs": [
+        "Rendering plots...",
+        "Exporting figures and tables (simulated).",
+        "Done."
+      ]
+    }
+  ]
+}
+
