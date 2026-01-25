@@ -1,0 +1,104 @@
+{
+  "analysis_id": "hzz-discovery",
+  "plots": {
+    "m4l": {
+      "title": "4-lepton invariant mass (H→ZZ*→4l)",
+      "x_label": "m₄ₗ (GeV)",
+      "y_label": "Events / 2.5 GeV",
+      "bins": [
+        { "x": 82.5, "background": 145, "data": 148, "signal": 0 },
+        { "x": 85, "background": 168, "data": 172, "signal": 0 },
+        { "x": 87.5, "background": 192, "data": 189, "signal": 0 },
+        { "x": 90, "background": 215, "data": 218, "signal": 1 },
+        { "x": 92.5, "background": 189, "data": 185, "signal": 1 },
+        { "x": 95, "background": 156, "data": 159, "signal": 1 },
+        { "x": 97.5, "background": 134, "data": 131, "signal": 2 },
+        { "x": 100, "background": 118, "data": 121, "signal": 2 },
+        { "x": 102.5, "background": 94, "data": 97, "signal": 3 },
+        { "x": 105, "background": 78, "data": 82, "signal": 3 },
+        { "x": 107.5, "background": 64, "data": 68, "signal": 4 },
+        { "x": 110, "background": 52, "data": 56, "signal": 5 },
+        { "x": 112.5, "background": 43, "data": 49, "signal": 6 },
+        { "x": 115, "background": 36, "data": 44, "signal": 7 },
+        { "x": 117.5, "background": 31, "data": 42, "signal": 9 },
+        { "x": 120, "background": 27, "data": 41, "signal": 12 },
+        { "x": 122.5, "background": 24, "data": 52, "signal": 24 },
+        { "x": 125, "background": 22, "data": 61, "signal": 35 },
+        { "x": 127.5, "background": 21, "data": 48, "signal": 24 },
+        { "x": 130, "background": 20, "data": 34, "signal": 12 },
+        { "x": 132.5, "background": 19, "data": 29, "signal": 8 },
+        { "x": 135, "background": 19, "data": 26, "signal": 6 },
+        { "x": 137.5, "background": 18, "data": 24, "signal": 5 },
+        { "x": 140, "background": 18, "data": 23, "signal": 4 },
+        { "x": 142.5, "background": 18, "data": 21, "signal": 3 },
+        { "x": 145, "background": 17, "data": 20, "signal": 2 },
+        { "x": 147.5, "background": 17, "data": 18, "signal": 2 },
+        { "x": 150, "background": 17, "data": 19, "signal": 1 },
+        { "x": 152.5, "background": 16, "data": 17, "signal": 1 },
+        { "x": 155, "background": 16, "data": 16, "signal": 0 },
+        { "x": 157.5, "background": 15, "data": 15, "signal": 0 },
+        { "x": 160, "background": 15, "data": 14, "signal": 0 },
+        { "x": 162.5, "background": 14, "data": 15, "signal": 0 },
+        { "x": 165, "background": 13, "data": 13, "signal": 0 },
+        { "x": 167.5, "background": 12, "data": 12, "signal": 0 },
+        { "x": 170, "background": 11, "data": 11, "signal": 0 }
+      ]
+    },
+    "channel_breakdown": {
+      "title": "Events by decay channel",
+      "channels": [
+        { "name": "4μ", "background": 892, "data": 945, "signal": 124 },
+        { "name": "2e2μ", "background": 1654, "data": 1738, "signal": 231 },
+        { "name": "4e", "background": 876, "data": 931, "signal": 118 }
+      ]
+    },
+    "z_masses": {
+      "title": "Leading Z candidate mass",
+      "x_label": "m_Z₁ (GeV)",
+      "y_label": "Events / 1 GeV",
+      "bins": [
+        { "x": 66, "count": 12 },
+        { "x": 70, "count": 24 },
+        { "x": 74, "count": 38 },
+        { "x": 78, "count": 56 },
+        { "x": 82, "count": 84 },
+        { "x": 86, "count": 142 },
+        { "x": 90, "count": 1247 },
+        { "x": 94, "count": 876 },
+        { "x": 98, "count": 124 },
+        { "x": 102, "count": 72 },
+        { "x": 106, "count": 48 },
+        { "x": 110, "count": 34 },
+        { "x": 114, "count": 18 }
+      ]
+    }
+  },
+  "results": {
+    "higgs_mass": {
+      "value": 125.1,
+      "stat_error": 0.2,
+      "syst_error": 0.4,
+      "unit": "GeV"
+    },
+    "significance": {
+      "local": 5.9,
+      "global": 5.1
+    },
+    "signal_strength": {
+      "mu": 1.02,
+      "error": 0.18
+    },
+    "total_events": {
+      "data": 2847,
+      "background": 3422,
+      "signal": 473
+    }
+  },
+  "outputs": [
+    { "name": "h_to_zz_workspace.root", "type": "ROOT", "size_kb": 1245 },
+    { "name": "fit_results.json", "type": "JSON", "size_kb": 86 },
+    { "name": "m4l_distribution.png", "type": "PNG", "size_kb": 342 },
+    { "name": "channel_breakdown.png", "type": "PNG", "size_kb": 198 },
+    { "name": "significance_scan.png", "type": "PNG", "size_kb": 156 }
+  ]
+}

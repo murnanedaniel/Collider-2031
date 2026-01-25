@@ -3,6 +3,13 @@
   "generated_at": "2031-01-01T00:00:00Z",
   "analyses": [
     {
+      "id": "hzz-discovery",
+      "title": "H→ZZ*→4l discovery analysis",
+      "subtitle": "Realistic Higgs boson discovery following ATLAS Open Data methodology",
+      "tags": ["Higgs", "4-lepton", "Standard Model", "Discovery"],
+      "last_updated": "2031-01-15T14:30:00Z"
+    },
+    {
       "id": "dijet-resonance",
       "title": "Heavy resonance search (dijet)",
       "subtitle": "Classic bread-and-butter ATLAS analysis pipeline demo",

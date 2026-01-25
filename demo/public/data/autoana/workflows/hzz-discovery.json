@@ -1,0 +1,130 @@
+{
+  "analysis_id": "hzz-discovery",
+  "workflow_name": "h_to_zz_4l_pipeline",
+  "nodes": [
+    {
+      "id": "checkout",
+      "name": "Checkout H→ZZ analysis repo",
+      "depends_on": [],
+      "duration_s": 8,
+      "logs": [
+        "Cloning H→ZZ→4l analysis repository...",
+        "Resolving dependencies...",
+        "Checked out commit a4c8d2f (based on ATLAS Open Data)."
+      ]
+    },
+    {
+      "id": "setup",
+      "name": "Setup environment",
+      "depends_on": ["checkout"],
+      "duration_s": 12,
+      "logs": [
+        "Setting up analysis environment...",
+        "Loading uproot, awkward, vector libraries...",
+        "Configuring 4-lepton analysis tools...",
+        "Environment ready."
+      ]
+    },
+    {
+      "id": "skimming",
+      "name": "Skim 4-lepton events",
+      "depends_on": ["setup"],
+      "duration_s": 18,
+      "logs": [
+        "Reading ATLAS Open Data samples...",
+        "Applying 4-lepton preselection...",
+        "Events with exactly 4 leptons selected...",
+        "Skim complete: 4lep_skim.root"
+      ]
+    },
+    {
+      "id": "lepton_selection",
+      "name": "Lepton quality cuts",
+      "depends_on": ["skimming"],
+      "duration_s": 22,
+      "logs": [
+        "Applying lepton identification criteria...",
+        "MediumID for muons, LooseID for electrons...",
+        "Isolation requirements applied...",
+        "Trigger matching verified...",
+        "High-quality leptons selected."
+      ]
+    },
+    {
+      "id": "pair_selection",
+      "name": "Z candidate pairing",
+      "depends_on": ["lepton_selection"],
+      "duration_s": 20,
+      "logs": [
+        "Building lepton pairs...",
+        "Requiring same-flavor, opposite-charge pairs...",
+        "Selecting Z₁ (closest to mZ) and Z₂ candidates...",
+        "Z mass windows: 66-116 GeV (Z₁), 0-116 GeV (Z₂)...",
+        "Valid 4l candidates: 2,847 events"
+      ]
+    },
+    {
+      "id": "mass_calculation",
+      "name": "4-lepton invariant mass",
+      "depends_on": ["pair_selection"],
+      "duration_s": 16,
+      "logs": [
+        "Computing 4-lepton system kinematics...",
+        "Invariant mass: m₄ₗ = √(E²tot - p²tot)...",
+        "Using vector 4-momentum calculations...",
+        "Mass range: 80-250 GeV analyzed."
+      ]
+    },
+    {
+      "id": "background_estimation",
+      "name": "Background modeling",
+      "depends_on": ["mass_calculation"],
+      "duration_s": 24,
+      "logs": [
+        "Modeling ZZ* continuum (irreducible background)...",
+        "Estimating Z+jets reducible background...",
+        "tt̄ background contribution evaluated...",
+        "Background uncertainties computed."
+      ]
+    },
+    {
+      "id": "signal_fit",
+      "name": "Signal extraction",
+      "depends_on": ["background_estimation"],
+      "duration_s": 18,
+      "logs": [
+        "Fitting background + signal model...",
+        "Crystal Ball function for Higgs signal...",
+        "Smooth background parametrization...",
+        "Peak observed at m_H = 125.1 ± 0.4 GeV...",
+        "Significance: 5.9σ (local)"
+      ]
+    },
+    {
+      "id": "systematics",
+      "name": "Systematic uncertainties",
+      "depends_on": ["signal_fit"],
+      "duration_s": 22,
+      "logs": [
+        "Evaluating systematic uncertainties...",
+        "Lepton energy scale and resolution...",
+        "Background modeling variations...",
+        "Luminosity uncertainty: 3.6%...",
+        "Total systematic: ±0.4 GeV on m_H"
+      ]
+    },
+    {
+      "id": "plots",
+      "name": "Generate plots",
+      "depends_on": ["systematics"],
+      "duration_s": 14,
+      "logs": [
+        "Rendering 4l invariant mass distribution...",
+        "Creating channel breakdowns (4μ, 2e2μ, 4e)...",
+        "Generating fit result plots...",
+        "Exporting publication-quality figures.",
+        "Analysis complete!"
+      ]
+    }
+  ]
+}
