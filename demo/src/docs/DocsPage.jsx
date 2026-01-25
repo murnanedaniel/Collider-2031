@@ -10,6 +10,7 @@ import SiReAsDoc from './SiReASDoc';
 import OpenDataDoc from './OpenDataDoc';
 import DistributedStorageDoc from './DistributedStorageDoc';
 import CreditEconomyDoc from './CreditEconomyDoc';
+import HZZAnalysisDoc from './HZZAnalysisDoc';
 import { ROUTES } from '@/utils/constants';
 
 const DOCS = {
@@ -21,6 +22,7 @@ const DOCS = {
   'open-data': { component: OpenDataDoc, title: 'Open Data Mandate' },
   'distributed-storage': { component: DistributedStorageDoc, title: 'Distributed Storage' },
   'credit-economy': { component: CreditEconomyDoc, title: 'Credit Economy' },
+  'hzz-analysis': { component: HZZAnalysisDoc, title: 'H→ZZ*→4l Analysis' },
 };
 
 export default function DocsPage() {

@@ -349,11 +349,26 @@ export default function Analysis() {
         {/* Info Card */}
         <Card className="bg-blue-50 border border-blue-200">
           <h3 className="font-medium mb-2">About These Measurements</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
             All measurements are updated in real-time using the full L1 trigger output from 
             ATLAS and CMS. The combination of complete data storage, advanced ML-based 
             reconstruction, and cross-detector synchronization has achieved unprecedented 
             precision in Standard Model measurements.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <strong>Analysis Methodology:</strong> The automated analysis chain follows proven 
+            techniques from the original discoveries. For example, the H→ZZ* analysis reproduces 
+            the 2012 ATLAS/CMS discovery methodology: selecting exactly 4 leptons (2e2μ, 4μ, or 4e), 
+            requiring same-flavor opposite-charge pairs that reconstruct Z bosons, and computing 
+            the 4-lepton invariant mass to reveal the Higgs peak at 125 GeV. See the{' '}
+            <a 
+              href="https://opendata.atlas.cern/docs/13TeV25Doc/StandardModel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              ATLAS Open Data documentation
+            </a> for details.
           </p>
         </Card>
       </div>
