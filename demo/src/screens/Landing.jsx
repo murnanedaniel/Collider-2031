@@ -30,7 +30,15 @@ export default function Landing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Button
+            onClick={() => setIsVideoOpen(true)}
+            className="w-full text-base md:text-lg py-4"
+          >
+            📹 Video Demo
+          </Button>
+
+          <Button
             onClick={() => navigate(ROUTES.LOGIN)}
+            variant="secondary"
             className="w-full text-base md:text-lg py-4"
           >
             → Enter ColliderLab
@@ -42,14 +50,6 @@ export default function Landing() {
             className="w-full text-base md:text-lg py-4"
           >
             &lt;/&gt; View on GitHub
-          </Button>
-
-          <Button
-            onClick={() => setIsVideoOpen(true)}
-            variant="secondary"
-            className="w-full text-base md:text-lg py-4"
-          >
-            📹 Video Demo
           </Button>
         </div>
 
