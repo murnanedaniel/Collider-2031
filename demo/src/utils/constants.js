@@ -29,6 +29,7 @@ export const ROUTES = {
   DETECTOR_DESIGN: '/detector-design',
   PROFILE: '/profile',
   DEPRECATED_AUTOANA: '/deprecated/autoana',
+  TIMELINE_PROTOTYPE: '/prototype',
 };
 
 

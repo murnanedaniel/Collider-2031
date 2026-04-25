@@ -18,6 +18,8 @@ import MetacollaborationDashboard from './screens/MetacollaborationDashboard';
 import DetectorDesign from './screens/DetectorDesign';
 import AutoAnaStart from './screens/deprecated/AutoAnaStart';
 import AutoAnaDashboard from './screens/deprecated/AutoAnaDashboard';
+import TimelinePrototype from './screens/TimelinePrototype';
+import BranchTest from './screens/BranchTest';
 import { ROUTES } from './utils/constants';
 
 function App() {
@@ -27,6 +29,12 @@ function App() {
         <Routes>
           {/* Landing page - no navigation bar */}
           <Route path="/" element={<Landing />} />
+
+          {/* Timeline prototype - no navigation bar */}
+          <Route path={ROUTES.TIMELINE_PROTOTYPE} element={<TimelinePrototype />} />
+
+          {/* Simple branch test */}
+          <Route path="/branch-test" element={<BranchTest />} />
 
           {/* Login route - no navigation bar */}
           <Route path={ROUTES.LOGIN} element={<Login />} />
