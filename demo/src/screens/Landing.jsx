@@ -132,7 +132,7 @@ const TIMELINE_EVENTS = [
   { year: 2028, month: 12, track: 'organization', title: 'First Bounty', description: 'First metacollaboration bounty posted (1,000 credits for calibration bug)', importance: 'medium' },
 
   // Characters
-  { year: 2028, month: 6, track: 'characters', title: 'Viktor Novak', description: 'Dr. Viktor Novak takes Apex AI CEO out drinking in Geneva - changes everything', importance: 'critical' },
+  { year: 2028, month: 6, track: 'characters', title: 'Viktor Novak', description: 'Dr. Viktor Novak takes Apex AI CEO James Park out drinking in Geneva - changes everything', importance: 'critical' },
 
   // ============= 2029 =============
   // Main Timeline
@@ -210,7 +210,7 @@ const TIMELINE_EVENTS = [
   { year: 2031, month: 6, track: 'physics', title: 'Top Mass Precision', description: 'Top mass: 172.76 ± 0.06 GeV (factor 2 improvement)', importance: 'medium' },
 
   // Characters - Maja's Story
-  { year: 2031, month: 3, track: 'characters', title: 'Maja Joins', description: 'Climate scientist Maja Andersen (ETH Zürich Masters) joins HiLumi M.C.', importance: 'high' },
+  { year: 2031, month: 3, track: 'characters', title: 'Maja Joins', description: 'Climate scientist Maja Andersen (ETH Zürich PhD) joins HiLumi M.C.', importance: 'high' },
   { year: 2031, month: 3, track: 'characters', title: 'Diurnal Pattern', description: 'Maja notices diurnal pattern in anomaly cluster', importance: 'medium' },
   { year: 2031, month: 5, track: 'characters', title: 'Solar Hypothesis', description: 'Maja develops solar correlation hypothesis', importance: 'high' },
   { year: 2031, month: 6, track: 'characters', title: 'THE DISCOVERY', description: 'June 14: Major solar flare. Maja runs 100M simulation. Perfect correlation confirmed!', importance: 'critical' },

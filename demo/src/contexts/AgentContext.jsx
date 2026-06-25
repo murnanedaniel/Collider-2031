@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { CHARACTERS } from '@/utils/constants';
 
 const AgentContext = createContext();
 
@@ -14,7 +15,27 @@ export function AgentProvider({ children }) {
   const [isAgentOpen, setIsAgentOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(null);
   const [agentResponse, setAgentResponse] = useState(null);
-  
+
+  // ---- Active character + per-character world-clock (independent eras) ----
+  const [activeCharacter, setActiveCharacter] = useState('maja');
+  // Map of characterId -> current year. Defaults to the character's startYear.
+  const [characterEra, setCharacterEra] = useState({});
+
+  // Enter a character: make them active and reset their clock to their start year.
+  const enterCharacter = (id) => {
+    if (!CHARACTERS[id]) return;
+    setActiveCharacter(id);
+    setCharacterEra((prev) => ({ ...prev, [id]: CHARACTERS[id].startYear }));
+  };
+
+  // Advance (or set) a character's world-clock — called when work is published.
+  const advanceEra = (id, year) => {
+    setCharacterEra((prev) => ({ ...prev, [id]: year }));
+  };
+
+  const activeInfo = CHARACTERS[activeCharacter] ?? CHARACTERS.maja;
+  const currentEra = characterEra[activeCharacter] ?? activeInfo.startYear;
+
   // Page-specific state
   const [memberHeatmapState, setMemberHeatmapState] = useState({
     filterApplied: false,
@@ -124,6 +145,8 @@ export function AgentProvider({ children }) {
       calibrated: false,
       showSolarFlareModal: false,
     });
+    setActiveCharacter('maja');
+    setCharacterEra({});
   };
 
   const value = {
@@ -136,7 +159,15 @@ export function AgentProvider({ children }) {
     handleAgentSubmit,
     clearAgentResponse,
     resetAllState,
-    
+
+    // Active character + per-character world-clock
+    activeCharacter,
+    setActiveCharacter,
+    enterCharacter,
+    activeInfo,
+    currentEra,
+    advanceEra,
+
     // Page-specific states
     memberHeatmapState,
     setMemberHeatmapState,

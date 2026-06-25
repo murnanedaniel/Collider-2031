@@ -17,6 +17,9 @@ export default function ScreenLayout({ children, title, subtitle }) {
     if (path.includes('/dashboard')) return 'dashboard';
     if (path.includes('/calibration')) return 'calibration';
     if (path.includes('/solar')) return 'solar';
+    if (path.includes('/erik')) return 'erik';
+    if (path.includes('/sofia')) return 'sofia';
+    if (path.includes('/elena')) return 'elena';
     return 'general';
   };
 

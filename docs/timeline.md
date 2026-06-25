@@ -208,7 +208,7 @@
   - Solar flare timing matches anomaly peak exactly
   - Both ATLAS and CMS see identical pattern
   - Foundation Space points drift from SM surface during solar activity
-- 18:00 - Messages PI Dr. Elena Vasquez with results
+- 18:00 - Messages PI Dr. Anja Lindqvist with results
 - Proposes distributed phone detector network for separate HNL search project
 
 **June 15-30, 2031**:

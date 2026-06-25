@@ -314,7 +314,7 @@ export default function MemberHeatmap() {
                   </li>
                   <li className="flex items-start space-x-2">
                     <span className="text-gray-400 mt-0.5">•</span>
-                    <span>Tobias Golling sponsorship needed</span>
+                    <span>Dr. Lindqvist sponsorship needed</span>
                   </li>
                 </ul>
               </div>

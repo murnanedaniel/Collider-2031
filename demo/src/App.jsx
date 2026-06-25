@@ -20,6 +20,9 @@ import AutoAnaStart from './screens/deprecated/AutoAnaStart';
 import AutoAnaDashboard from './screens/deprecated/AutoAnaDashboard';
 import TimelinePrototype from './screens/TimelinePrototype';
 import BranchTest from './screens/BranchTest';
+import ErikFlow from './screens/erik/ErikFlow';
+import SofiaFlow from './screens/sofia/SofiaFlow';
+import ElenaFlow from './screens/elena/ElenaFlow';
 import { ROUTES } from './utils/constants';
 
 function App() {
@@ -57,6 +60,9 @@ function App() {
                 <Route path={ROUTES.PROFILE} element={<UserProfile />} />
                 <Route path={ROUTES.METACOLLABORATION} element={<MetacollaborationDashboard />} />
                 <Route path={ROUTES.DETECTOR_DESIGN} element={<DetectorDesign />} />
+                <Route path={ROUTES.ERIK} element={<ErikFlow />} />
+                <Route path={ROUTES.SOFIA} element={<SofiaFlow />} />
+                <Route path={ROUTES.ELENA} element={<ElenaFlow />} />
                 <Route path={ROUTES.DEPRECATED_AUTOANA} element={<AutoAnaStart />} />
                 <Route path={`${ROUTES.DEPRECATED_AUTOANA}/:analysisId`} element={<AutoAnaDashboard />} />
               </Routes>

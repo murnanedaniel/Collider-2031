@@ -163,7 +163,7 @@ export default function SolarConfirmation() {
                 onClick={() => setShowCommunication(true)}
                 className="text-gray-900 hover:text-gray-600 underline font-medium"
               >
-                Message PI (Dr. Elena Vasquez)
+                Message PI (Dr. Anja Lindqvist)
               </button>
             </div>
             <div className="flex items-center space-x-3">
@@ -186,7 +186,7 @@ export default function SolarConfirmation() {
           <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
             <Card className="max-w-2xl w-full mx-4">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-light">Message to Dr. Elena Vasquez</h3>
+                <h3 className="text-xl font-light">Message to Dr. Anja Lindqvist</h3>
                 <button
                   onClick={() => setShowCommunication(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -198,9 +198,9 @@ export default function SolarConfirmation() {
               </div>
               <div className="space-y-4">
                 <div className="bg-gray-50 p-4 rounded">
-                  <div className="text-sm text-gray-600 mb-2">To: Dr. Elena Vasquez (HiLumi M.C. PI)</div>
+                  <div className="text-sm text-gray-600 mb-2">To: Dr. Anja Lindqvist · KTH (HiLumi M.C. PI)</div>
                   <div className="text-sm">
-                    <p className="mb-3">Hi Elena,</p>
+                    <p className="mb-3">Hi Anja,</p>
                     <p className="mb-3">
                       I've completed the investigation of bounty #943 (time-correlated anomaly in Foundation Space). 
                       The anomalies are caused by solar radiation effects during an M5.4 solar flare on Oct 22, 16:03-16:09 UTC.
@@ -218,7 +218,7 @@ export default function SolarConfirmation() {
                 <button
                   onClick={() => {
                     setShowCommunication(false);
-                    alert('Message sent! Elena responds: "Excellent work Maja! Let\'s schedule you for next week\'s plenary. Please prepare a 15-min presentation."');
+                    alert('Message sent! Anja responds: "Excellent work Maja! Let\'s schedule you for next week\'s plenary. Please prepare a 15-min presentation."');
                   }}
                   className="btn-primary w-full"
                 >

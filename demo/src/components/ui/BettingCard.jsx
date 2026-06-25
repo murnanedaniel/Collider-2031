@@ -145,15 +145,15 @@ export default function BettingCard() {
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-600">1. K. Nakamura</span>
+              <span className="text-gray-600">1. M. Pierini</span>
               <span className="font-medium">+127k credits</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">2. L. Zhang</span>
+              <span className="text-gray-600">2. T. Aarrestad</span>
               <span className="font-medium">+89k credits</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">3. R. Okonkwo</span>
+              <span className="text-gray-600">3. M. Thomson</span>
               <span className="font-medium">+64k credits</span>
             </div>
           </div>

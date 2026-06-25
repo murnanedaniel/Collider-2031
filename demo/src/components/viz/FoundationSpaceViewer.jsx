@@ -14,7 +14,10 @@ export default function FoundationSpaceViewer({
   showProcesses,
   detectorFilter,
   showATLAS,
-  showCMS 
+  showCMS,
+  // --- Elena extensions (default-off; Maja passes neither, so her path is unchanged) ---
+  projectionMode = '3d',      // '3d' | 'dark_photon' (flatten to top-down 2D)
+  constraintBlobs = []        // [{ position:[x,y,z], radius, color, opacity, scale:[sx,sy,sz] }]
 }) {
   const mountRef = useRef(null);
   const sceneRef = useRef(null);
@@ -27,6 +30,7 @@ export default function FoundationSpaceViewer({
   const processSurfacesRef = useRef([]);
   const autoRotateRef = useRef(true);
   const animationFrameRef = useRef(null);
+  const constraintBlobsRef = useRef([]);
 
   // Filter events by time and detector
   const filteredEvents = useMemo(() => {
@@ -88,6 +92,15 @@ export default function FoundationSpaceViewer({
     });
     
     controlsRef.current = controls;
+
+    // Elena's dark-photon projection: flatten to a top-down 2D view, no spin.
+    // Gated — only runs when the caller opts in via projectionMode.
+    if (projectionMode === 'dark_photon') {
+      camera.position.set(0, 60, 0.001);
+      camera.lookAt(0, 0, 0);
+      autoRotateRef.current = false;
+      controls.enableRotate = false;
+    }
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -406,6 +419,38 @@ export default function FoundationSpaceViewer({
       processSurfacesRef.current.push(mesh);
     });
   }, [surfaces, showProcesses]);
+
+  // Render constraint "blobs" — Elena's dark-photon exclusion regions.
+  // Gated: with the default empty array (Maja), this removes nothing and returns.
+  useEffect(() => {
+    if (!sceneRef.current) return;
+    constraintBlobsRef.current.forEach((mesh) => {
+      sceneRef.current.remove(mesh);
+      mesh.geometry.dispose();
+      mesh.material.dispose();
+    });
+    constraintBlobsRef.current = [];
+    if (!constraintBlobs || !constraintBlobs.length) return;
+
+    constraintBlobs.forEach((b) => {
+      const geometry = new THREE.SphereGeometry(b.radius ?? 4, 24, 24);
+      const material = new THREE.MeshPhongMaterial({
+        color: b.color ?? 0x3b82f6,
+        transparent: true,
+        opacity: b.opacity ?? 0.35,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+        emissive: b.color ?? 0x3b82f6,
+        emissiveIntensity: 0.15,
+      });
+      const mesh = new THREE.Mesh(geometry, material);
+      const [x, y, z] = b.position ?? [0, 0, 0];
+      mesh.position.set(x, y, z);
+      if (b.scale) mesh.scale.set(b.scale[0], b.scale[1], b.scale[2]);
+      sceneRef.current.add(mesh);
+      constraintBlobsRef.current.push(mesh);
+    });
+  }, [constraintBlobs]);
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
