@@ -214,6 +214,12 @@ export default function ErikFlow() {
 
   useEffect(() => {
     if (activeCharacter !== 'erik') enterCharacter('erik');
+    // Deep-link a beat from the URL: ?era=2028|2029|2030, or ?stage=defense.
+    const p = new URLSearchParams(window.location.search);
+    const e = parseInt(p.get('era'), 10);
+    if ([2028, 2029, 2030].includes(e)) advanceEra('erik', e);
+    const st = p.get('stage');
+    if (st === 'defense' || st === 'epilogue') { advanceEra('erik', 2030); setStage(st); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -143,6 +143,10 @@ export default function ElenaFlow() {
 
   useEffect(() => {
     if (activeCharacter !== 'elena') enterCharacter('elena');
+    // Deep-link a phase from the URL: ?era=2029|2030|2031|2032.
+    const p = new URLSearchParams(window.location.search);
+    const e = parseInt(p.get('era'), 10);
+    if ([2029, 2030, 2031, 2032].includes(e)) advanceEra('elena', e);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
