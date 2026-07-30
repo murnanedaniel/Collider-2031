@@ -15,6 +15,7 @@ export const ROUTES = {
   CALIBRATION: '/calibration',
   MEMBERS: '/members',
   TIMELINE: '/timeline',
+  FUTURES: '/futures',
   DOCS: '/docs',
   METACOLLABORATION: '/metacollaboration',
   DETECTOR_DESIGN: '/detector-design',

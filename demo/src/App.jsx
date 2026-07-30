@@ -12,6 +12,7 @@ import CalibrationResults from './screens/CalibrationResults';
 import SolarConfirmation from './screens/SolarConfirmation';
 import MemberHeatmap from './screens/MemberHeatmap';
 import Timeline from './screens/Timeline';
+import Futures from './screens/Futures';
 import DocsPage from './docs/DocsPage';
 import UserProfile from './screens/UserProfile';
 import MetacollaborationDashboard from './screens/MetacollaborationDashboard';
@@ -55,6 +56,7 @@ function App() {
                 <Route path={ROUTES.SOLAR} element={<SolarConfirmation />} />
                 <Route path={ROUTES.MEMBERS} element={<MemberHeatmap />} />
                 <Route path={ROUTES.TIMELINE} element={<Timeline />} />
+                <Route path={ROUTES.FUTURES} element={<Futures />} />
                 <Route path={ROUTES.DOCS} element={<DocsPage />} />
                 <Route path={`${ROUTES.DOCS}/:docId`} element={<DocsPage />} />
                 <Route path={ROUTES.PROFILE} element={<UserProfile />} />
