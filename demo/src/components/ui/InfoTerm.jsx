@@ -3,8 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 // Glossary of simulation concepts, in plain language.
 export const GLOSSARY = {
   pivoted: {
-    title: 'Pivoted',
-    body: 'The funding conversion happened: at least two of the big national funders re-labeled their particle-physics money from analyst salaries to hardware, operations and archives — with an authorized programme actually receiving it. "Mostly late" because in the great majority of these histories the conversion arrives only AFTER years of cuts, not before them.',
+    title: 'Pivoted (succession)',
+    body: 'The funding conversion happened: national money moved from analyst salaries into capability grants — magnet consortia the fusion industry buys from, detector operations the running machine needs, certified data-archive custody, assurance drills, examined education. Honest caveat, which is why this tile is amber and not green: the BUDGETS convert; the PEOPLE mostly do not. The new posts want engineers, technicians and operations specialists; seat arithmetic caps how many current analysts cross over at roughly 5-15%. The infrastructure finds successors; most analysts find another field. And in most histories the conversion arrives only after years of cuts.',
   },
   'muddle-through': {
     title: 'Muddle-through',
@@ -36,7 +36,7 @@ export const GLOSSARY = {
   },
   conversion: {
     title: 'The conversion package',
-    body: 'A pre-agreed plan, adopted by CERN Council and the national agencies together, that re-labels national funding from analyst salaries toward hardware, operations, computing and archives — triggered automatically when measured automation crosses agreed thresholds, so no single country has to confess first. "Proposed" means it is on the table; "appropriated" means real budget lines exist. The simulation’s sharpest number: it arrives BEFORE the first cuts in only 8% of histories.',
+    body: 'A pre-agreed plan that re-labels national funding from analyst salaries into capability grants: services with named customers, acceptance tests and sunset clauses. Concretely: HTS magnet work the fusion industry signs for; detector operations the running machine logs; certified archive custody that machine reanalysis refuses to run without; assurance drills insurers require; examinations employers pay for. Every human post must answer "which result requires the funded people?" — with physical work (dated to expire), assigned responsibility (named), custody (certified), education (purchased), or industrial demand (contracted). At European scale it costs ~CHF 135M/yr — less than the money freed from analysis, and the honest plans leave the rest unspent rather than inventing posts. It arrives BEFORE the first cuts in only 8% of histories.',
   },
   trim: {
     title: 'Trim',

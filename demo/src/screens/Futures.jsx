@@ -16,7 +16,7 @@ const FCC_COLORS = {
   descope: '#f59e0b', paused: '#ef4444', rejected: '#7f1d1d',
 };
 const ENDING_LABELS = {
-  pivoted: 'Pivots (mostly late)', deniable: 'Muddles through',
+  pivoted: 'Pivots (late; succession)', deniable: 'Muddles through',
   disorderly: 'Disorderly', hollowed: 'Hollows out',
 };
 
@@ -99,7 +99,7 @@ export default function Futures() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {Object.entries(data.endings).sort((a, b) => b[1] - a[1]).map(([k, v]) => (
           <Card key={k}>
-            <div className="text-3xl font-bold" style={{ color: k === 'pivoted' ? '#22c55e' : k === 'disorderly' ? '#ef4444' : k === 'hollowed' ? '#f59e0b' : '#64748b' }}>
+            <div className="text-3xl font-bold" style={{ color: k === 'pivoted' ? '#d97706' : k === 'disorderly' ? '#ef4444' : k === 'hollowed' ? '#f59e0b' : '#64748b' }}>
               {Math.round(v * 100)}%
             </div>
             <div className="text-sm text-gray-500 mt-1">

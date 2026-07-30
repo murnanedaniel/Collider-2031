@@ -10,7 +10,7 @@ const HEIGHT = 660;
 const PAD = 14;
 
 const ENDING_COLORS = {
-  pivoted: '#22c55e', 'muddle-through': '#64748b',
+  pivoted: '#d97706', 'muddle-through': '#64748b',
   disorderly: '#ef4444', hollowed: '#f59e0b',
 };
 
