@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ScreenLayout from '@/components/layout/ScreenLayout';
 import Card from '@/components/ui/Card';
 import FutureTree from '@/components/viz/FutureTree';
+import { Term, TermChips } from '@/components/ui/InfoTerm';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
@@ -90,7 +91,8 @@ export default function Futures() {
       <p className="text-sm text-gray-500 mb-6 max-w-3xl">
         {data.meta.runs.toLocaleString()} simulated histories of European particle-physics funding,
         2026–2041, from the <span className="font-medium">{data.meta.source}</span>.{' '}
-        <span className="italic">{data.meta.note}</span>
+        <span className="italic">{data.meta.note}</span>{' '}
+        <Term k="structured judgments" className="not-italic">What does that mean?</Term>
       </p>
 
       {/* 1. Ending tiles */}
@@ -100,7 +102,9 @@ export default function Futures() {
             <div className="text-3xl font-bold" style={{ color: k === 'pivoted' ? '#22c55e' : k === 'disorderly' ? '#ef4444' : k === 'hollowed' ? '#f59e0b' : '#64748b' }}>
               {Math.round(v * 100)}%
             </div>
-            <div className="text-sm text-gray-500 mt-1">{ENDING_LABELS[k] || k}</div>
+            <div className="text-sm text-gray-500 mt-1">
+              <Term k={k === 'deniable' ? 'muddle-through' : k}>{ENDING_LABELS[k] || k}</Term>
+            </div>
           </Card>
         ))}
       </div>
@@ -110,9 +114,12 @@ export default function Futures() {
         <Card className="mb-8">
           <h2 className="text-lg font-semibold mb-1">The tree of futures</h2>
           <p className="text-xs text-gray-400 mb-3">
-            Every branch counted from the simulated histories themselves: the 2027 consultations,
-            the FCC decision, whether the funding conversion comes before or after the cuts,
-            the machine's fate, and the ending. Branches carrying less than 0.8% are pruned.
+            Every branch counted from the simulated histories themselves:
+            the 2027 <Term k="consultations">consultations</Term>,
+            the <Term k="fcc">FCC decision</Term>,
+            whether the funding <Term k="conversion">conversion</Term> comes before
+            or after <Term k="cuts">the cuts</Term>, the machine's fate, and the ending.
+            Branches carrying less than 0.8% are pruned. Click any underlined word for a plain-language explanation.
           </p>
           <FutureTree tree={data.tree} />
         </Card>
@@ -126,6 +133,10 @@ export default function Futures() {
           and the conversion wave (green) follow ~2037 — the modal future is cut-then-convert.
         </p>
         <StackChart quarters={data.quarters} data={data.field} colors={FIELD_COLORS} />
+        <TermChips colors={FIELD_COLORS} items={[
+          ['intact', 'intact'], ['cutting', 'cutting'], ['converting', 'converting'],
+          ['converted', 'converted'], ['disorderly', 'disorderly'],
+        ]} />
       </Card>
 
       {/* 3. FCC status */}
@@ -136,6 +147,11 @@ export default function Futures() {
           shock-proof object in the model: contracts are armored, people are soft.
         </p>
         <StackChart quarters={data.quarters} data={data.fcc} colors={FCC_COLORS} />
+        <TermChips colors={FCC_COLORS} items={[
+          ['fcc|pre', 'awaiting decision'], ['approved (gated)|approved', 'approved'],
+          ['fcc|construction', 'under construction'], ['descope|descope', 'descoped'],
+          ['paused|paused', 'paused'], ['fcc|rejected', 'never approved'],
+        ]} />
       </Card>
 
       {/* 4. Forks */}
@@ -145,7 +161,10 @@ export default function Futures() {
           <Card key={f.id}>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="text-xs font-mono bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">{f.date}</span>
-              <span className="font-medium">{f.title}</span>
+              <span className="font-medium">
+                <Term k={{consult:'consultations', fcc:'fcc', muon:'muon demonstrator',
+                          rrb:'rrb', conversion:'conversion'}[f.id]}>{f.title}</Term>
+              </span>
             </div>
             {f.options.map((o) => (
               <div key={o.label} className="flex items-center gap-2 mb-1">

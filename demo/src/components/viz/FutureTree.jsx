@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { GLOSSARY } from '@/components/ui/InfoTerm';
 
 // Empirical probability tree: branch thickness = share of the 10,000 simulated
 // histories taking that branch. Indigo path = the modal (most likely) route.
@@ -90,6 +91,7 @@ export default function FutureTree({ tree }) {
       {/* hover panel */}
       <div className="mt-2 min-h-[64px] border-t border-gray-100 pt-3">
         {sel ? (
+          <div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-sm">
             <span className="font-medium text-gray-700">{sel.name}</span>
             <span className="font-mono text-gray-400">{(sel.p * 100).toFixed(1)}% of all histories</span>
@@ -104,6 +106,17 @@ export default function FutureTree({ tree }) {
                 ))}
               </span>
             )}
+          </div>
+          {(() => {
+            const key = { 'muddle-through': 'muddle-through', pivoted: 'pivoted', disorderly: 'disorderly',
+              hollowed: 'hollowed', 'approved (gated)': 'approved (gated)', 'approved (full)': 'fcc',
+              'never approved': 'fcc', 'built, intact': 'fcc', 'built, descoped': 'descope', paused: 'paused',
+              'converts BEFORE cuts': 'conversion', 'converts after cuts': 'conversion', 'no conversion': 'conversion',
+              'redesign demanded': 'consultations', 'delay demanded': 'consultations',
+              'consultation passes': 'consultations', blocked: 'consultations' }[sel.name];
+            const g = key && GLOSSARY[key];
+            return g ? <p className="text-xs text-gray-500 mt-2 max-w-2xl leading-relaxed">{g.body}</p> : null;
+          })()}
           </div>
         ) : (
           <p className="text-xs text-gray-400">
