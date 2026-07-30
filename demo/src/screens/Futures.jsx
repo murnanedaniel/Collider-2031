@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ScreenLayout from '@/components/layout/ScreenLayout';
 import Card from '@/components/ui/Card';
+import FutureTree from '@/components/viz/FutureTree';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
@@ -104,7 +105,20 @@ export default function Futures() {
         ))}
       </div>
 
-      {/* 2. Field occupancy */}
+      {/* 2. The tree */}
+      {data.tree && (
+        <Card className="mb-8">
+          <h2 className="text-lg font-semibold mb-1">The tree of futures</h2>
+          <p className="text-xs text-gray-400 mb-3">
+            Every branch counted from the simulated histories themselves: the 2027 consultations,
+            the FCC decision, whether the funding conversion comes before or after the cuts,
+            the machine's fate, and the ending. Branches carrying less than 0.8% are pruned.
+          </p>
+          <FutureTree tree={data.tree} />
+        </Card>
+      )}
+
+      {/* 3. Field occupancy */}
       <Card className="mb-8">
         <h2 className="text-lg font-semibold mb-1">Where the field is, quarter by quarter</h2>
         <p className="text-xs text-gray-400 mb-3">
